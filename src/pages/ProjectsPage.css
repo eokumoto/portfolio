@@ -338,9 +338,10 @@
     width: 100%;
     margin-top: 0;
     padding: var(--space-2);
-    border: var(--border-thin) solid var(--color-pink);
-    background: var(--color-cream);
-    box-shadow: 3px 3px 0 var(--color-plum-light);
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
   }
 
   .projects-page__action-row {

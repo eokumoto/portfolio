@@ -1,27 +1,61 @@
 import { BackButton } from '../components/BackButton/BackButton'
 import { PageHeading } from '../components/PageHeading/PageHeading'
 import { PixelPanel } from '../components/PixelPanel/PixelPanel'
+import { SocialLinks } from '../components/SocialLinks/SocialLinks'
+import { TechnologyTag } from '../components/TechnologyTag/TechnologyTag'
+import './AboutPage.css'
 
 export function AboutPage() {
   return (
-    <main className="page-shell">
-      <header className="page-header">
-        <BackButton label="Back to Home" to="/" />
-        <PageHeading title="About Emi" />
-      </header>
+    <main className="about-page">
+      <div className="about-page__layout">
+        <header className="page-header">
+          <BackButton label="Back to Home" to="/" />
+          <PageHeading title="About Me" />
+        </header>
 
-      <div className="page-content">
-        <PixelPanel>
-          <p>Hello!</p>
-          <p>Biography: TODO</p>
+        <div className="about-page__content">
+          <PixelPanel className="about-page__art-panel">
+            <div
+              aria-label="Portrait artwork placeholder"
+              className="about-page__art-placeholder"
+              role="img"
+            >
+              <span>Portrait artwork</span>
+              <strong>TODO</strong>
+            </div>
+          </PixelPanel>
 
-          <h2>Interests</h2>
-          <ul>
-            <li>Game development</li>
-            <li>UI/UX design</li>
-            <li>TODO</li>
-          </ul>
-        </PixelPanel>
+          <PixelPanel className="about-page__text-panel">
+            <div className="about-page__copy">
+              <p className="about-page__greeting">Hello!</p>
+              <p className="about-page__introduction">
+                3rd Year Software Engineering Student at Cal Poly San Luis
+                Obispo
+              </p>
+
+              <section
+                aria-labelledby="about-interests-heading"
+                className="about-page__interests"
+              >
+                <h2 id="about-interests-heading">Interests</h2>
+                <ul>
+                  <li>
+                    <TechnologyTag>Game development</TechnologyTag>
+                  </li>
+                  <li>
+                    <TechnologyTag>UI/UX design</TechnologyTag>
+                  </li>
+                </ul>
+              </section>
+            </div>
+
+            <footer className="about-page__contact">
+              <p>Let&apos;s connect!</p>
+              <SocialLinks compact />
+            </footer>
+          </PixelPanel>
+        </div>
       </div>
     </main>
   )

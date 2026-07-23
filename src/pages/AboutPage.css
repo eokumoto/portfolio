@@ -1,0 +1,199 @@
+.about-page {
+  min-height: 100svh;
+  overflow-x: hidden;
+  background-color: var(--color-sky);
+  background-image: url('/images/backgrounds/projects-mobile.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-plum);
+}
+
+.about-page__layout {
+  width: min(100%, 78rem);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    max(var(--space-4), env(safe-area-inset-top))
+    var(--page-gutter)
+    max(var(--space-7), env(safe-area-inset-bottom));
+}
+
+.about-page .page-header {
+  width: min(100%, 73.75rem);
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+}
+
+.about-page .back-button {
+  margin-bottom: var(--space-4);
+}
+
+.about-page .page-heading {
+  margin-bottom: 0;
+}
+
+.about-page .page-heading__title {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+.about-page__content {
+  display: grid;
+  width: min(100%, 68.75rem);
+  margin-inline: auto;
+  gap: clamp(var(--space-5), 4vw, var(--space-7));
+  align-items: stretch;
+}
+
+.about-page__art-panel,
+.about-page__text-panel {
+  min-width: 0;
+}
+
+.about-page__art-panel {
+  display: grid;
+  padding: clamp(var(--space-3), 2vw, var(--space-4));
+}
+
+.about-page__art-placeholder {
+  display: grid;
+  width: 100%;
+  min-height: clamp(13rem, 50vw, 22rem);
+  place-content: center;
+  gap: var(--space-2);
+  border: var(--border-thin) dashed var(--color-pink-dark);
+  background: var(--color-pink-light);
+  color: var(--color-plum-light);
+  font-family: var(--font-display);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.about-page__art-placeholder strong {
+  color: var(--color-rose);
+  font-size: var(--font-size-lg);
+}
+
+.about-page__text-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-7);
+}
+
+.about-page__copy {
+  display: grid;
+  max-width: var(--text-width);
+  gap: var(--space-4);
+}
+
+.about-page__greeting {
+  margin: 0;
+  color: var(--color-rose);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.about-page__introduction {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: 1.65;
+}
+
+.about-page__interests {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.about-page__interests h2 {
+  margin: 0;
+  color: var(--color-rose);
+  font-size: var(--font-size-lg);
+}
+
+.about-page__interests ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-page__contact {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: var(--border-thin) solid var(--color-pink);
+}
+
+.about-page__contact > p {
+  margin: 0;
+  color: var(--color-rose);
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+}
+
+.about-page__contact .social-links {
+  gap: var(--space-3);
+}
+
+.about-page__contact .social-links--compact .pixel-button {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .about-page {
+    background-image: url('/images/backgrounds/projects-desktop.png');
+  }
+
+  .about-page__content {
+    grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.1fr);
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .about-page__layout {
+    padding:
+      max(var(--space-3), env(safe-area-inset-top))
+      var(--space-3)
+      max(var(--space-6), env(safe-area-inset-bottom));
+  }
+
+  .about-page .page-header {
+    margin-bottom: var(--space-3);
+  }
+
+  .about-page .back-button {
+    margin-bottom: var(--space-3);
+  }
+
+  .about-page__content {
+    gap: var(--space-4);
+  }
+
+  .about-page__art-panel,
+  .about-page__text-panel {
+    padding: var(--space-3);
+  }
+
+  .about-page__art-placeholder {
+    min-height: clamp(11rem, 52vw, 16rem);
+  }
+
+  .about-page__text-panel {
+    gap: var(--space-5);
+  }
+
+  .about-page__introduction {
+    font-size: var(--font-size-body);
+  }
+}
