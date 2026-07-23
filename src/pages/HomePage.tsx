@@ -1,29 +1,49 @@
-import { PageHeading } from '../components/PageHeading/PageHeading'
 import { PixelButton } from '../components/PixelButton/PixelButton'
 import { SocialLinks } from '../components/SocialLinks/SocialLinks'
+import './HomePage.css'
 
 export function HomePage() {
   return (
     <main className="home-page">
-      <div className="page-shell">
-        <PageHeading
-          description="3rd Year Software Engineering Student at Cal Poly San Luis Obispo · Aspiring Game Developer"
-          title="Emi Okumoto"
-        />
+      <div className="home-page__layout">
+        <div className="home-page__main">
+          <header className="home-page__title">
+            <h1>Emi Okumoto</h1>
+            <div className="home-page__subtitle">
+              <p>Software Engineering Student</p>
+              <p>Aspiring Game Developer</p>
+            </div>
+          </header>
 
-        <nav className="home-navigation" aria-label="Portfolio">
-          <PixelButton to="/projects" variant="primary">
-            Select Project
-          </PixelButton>
-          <PixelButton to="/about" variant="primary">
-            About Me
-          </PixelButton>
-          <PixelButton to="/resume" variant="primary">
-            Resume
-          </PixelButton>
-        </nav>
+          <nav className="home-page__navigation" aria-label="Portfolio">
+            <PixelButton
+              className="home-page__primary-button"
+              to="/projects"
+              variant="primary"
+            >
+              Projects
+            </PixelButton>
+            <PixelButton
+              className="home-page__primary-button"
+              to="/about"
+              variant="primary"
+            >
+              About
+            </PixelButton>
+            <PixelButton
+              className="home-page__primary-button"
+              to="/resume"
+              variant="primary"
+            >
+              Resume
+            </PixelButton>
+          </nav>
+        </div>
 
-        <SocialLinks />
+        <footer className="home-page__footer">
+          <p>Let&apos;s connect!</p>
+          <SocialLinks compact />
+        </footer>
       </div>
     </main>
   )

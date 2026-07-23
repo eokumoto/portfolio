@@ -40,6 +40,12 @@ export function StyleGuidePage() {
               <PixelButton selected>Selected Button</PixelButton>
             </div>
             <div className="style-guide-swatch">
+              <p className="style-guide-label">Pressed</p>
+              <PixelButton className="is-active-preview">
+                Pressed Button
+              </PixelButton>
+            </div>
+            <div className="style-guide-swatch">
               <p className="style-guide-label">Disabled</p>
               <PixelButton disabled>Disabled Button</PixelButton>
             </div>

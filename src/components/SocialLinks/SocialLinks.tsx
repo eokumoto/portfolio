@@ -6,6 +6,7 @@ export interface SocialLink {
 }
 
 interface SocialLinksProps {
+  compact?: boolean
   links?: SocialLink[]
 }
 
@@ -15,11 +16,21 @@ const portfolioSocialLinks: SocialLink[] = [
   { href: 'mailto:eokumoto@calpoly.edu', label: 'Email' },
 ]
 
+const compactMarkers: Record<string, string> = {
+  Email: '@',
+  GitHub: 'GH',
+  LinkedIn: 'in',
+}
+
 export function SocialLinks({
+  compact = false,
   links = portfolioSocialLinks,
 }: SocialLinksProps) {
   return (
-    <ul className="social-links" aria-label="Social links">
+    <ul
+      className={`social-links${compact ? ' social-links--compact' : ''}`}
+      aria-label="Social links"
+    >
       {links.map((link) => {
         const external = link.href.startsWith('http')
 
@@ -30,7 +41,14 @@ export function SocialLinks({
               rel={external ? 'noreferrer' : undefined}
               target={external ? '_blank' : undefined}
             >
-              {link.label}
+              {compact && (
+                <span className="social-links__marker" aria-hidden="true">
+                  {compactMarkers[link.label] ?? link.label.slice(0, 1)}
+                </span>
+              )}
+              <span className={compact ? 'screen-reader-only' : undefined}>
+                {link.label}
+              </span>
             </PixelButton>
           </li>
         )

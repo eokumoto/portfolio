@@ -1,0 +1,210 @@
+.home-page {
+  min-height: 100svh;
+  overflow-x: hidden;
+  background-color: var(--color-sky);
+  background-image: url('/images/backgrounds/home-mobile.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-plum);
+}
+
+.home-page__layout {
+  position: relative;
+  z-index: var(--z-content);
+  display: grid;
+  width: min(100%, var(--content-width));
+  min-height: 100svh;
+  margin-inline: auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-items: center;
+  padding:
+    max(var(--space-4), env(safe-area-inset-top))
+    var(--page-gutter)
+    max(var(--space-4), env(safe-area-inset-bottom));
+}
+
+.home-page__main {
+  display: grid;
+  width: 100%;
+  align-self: center;
+  justify-items: center;
+  padding-block: var(--space-5);
+}
+
+.home-page__title {
+  width: fit-content;
+  max-width: min(100%, 46rem);
+  padding: var(--space-3) clamp(var(--space-4), 3vw, var(--space-6));
+  border: var(--border-chunky) solid var(--color-plum);
+  border-radius: var(--radius-pixel);
+  background: var(--color-cream);
+  box-shadow:
+    inset 0 0 0 2px var(--color-pink),
+    4px 4px 0 var(--color-plum-light);
+  text-align: center;
+}
+
+.home-page__title h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.15rem, 6.5vw, 4.25rem);
+  line-height: 1.08;
+  letter-spacing: 0.015em;
+  text-shadow:
+    2px 0 0 var(--color-pink-light),
+    0 2px 0 var(--color-pink-light),
+    2px 2px 0 var(--color-pink-dark);
+  text-wrap: balance;
+}
+
+.home-page__subtitle {
+  display: grid;
+  margin-top: var(--space-2);
+  gap: var(--space-1);
+}
+
+.home-page__subtitle p {
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.78rem, 2.4vw, 1.08rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.home-page__navigation {
+  display: grid;
+  width: min(100%, 26rem);
+  margin-top: clamp(var(--space-5), 4svh, var(--space-7));
+  gap: var(--space-4);
+}
+
+.home-page__primary-button {
+  position: relative;
+  width: 100%;
+  min-height: 3.25rem;
+  padding-inline: 3rem;
+  font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-body));
+}
+
+.home-page__primary-button::before,
+.home-page__primary-button::after {
+  position: absolute;
+  top: 50%;
+  color: var(--color-rose);
+  transform: translateY(-50%);
+}
+
+.home-page__primary-button::before {
+  content: '✦';
+  left: var(--space-4);
+  font-size: 0.8em;
+}
+
+.home-page__primary-button::after {
+  content: '›';
+  right: var(--space-4);
+  font-size: 1.35em;
+}
+
+.home-page__primary-button:hover {
+  transform: translateX(3px);
+}
+
+.home-page__primary-button:active {
+  transform: translate(2px, 2px);
+}
+
+.home-page__footer {
+  display: grid;
+  justify-items: center;
+  padding-top: var(--space-5);
+}
+
+.home-page__footer > p {
+  margin-bottom: var(--space-3);
+  padding: 0 var(--space-2);
+  border: var(--border-thin) solid var(--color-pink-dark);
+  background: var(--color-cream);
+  box-shadow: 2px 2px 0 var(--color-plum-light);
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 800;
+}
+
+.home-page__footer .social-links {
+  gap: var(--space-3);
+}
+
+.home-page__footer .social-links--compact .pixel-button {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .home-page {
+    background-image: url('/images/backgrounds/home-desktop.png');
+  }
+
+  .home-page__navigation {
+    width: min(36vw, 26rem);
+  }
+}
+
+@media (max-width: 30rem) {
+  .home-page__layout {
+    padding-inline: var(--space-4);
+  }
+
+  .home-page__title {
+    width: 100%;
+    padding-inline: var(--space-3);
+  }
+
+  .home-page__navigation {
+    gap: var(--space-3);
+  }
+
+  .home-page__main {
+    padding-block: var(--space-4);
+  }
+
+  .home-page__primary-button {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (max-height: 43rem) {
+  .home-page__layout {
+    grid-template-rows: auto auto;
+  }
+
+  .home-page__main {
+    padding-block: var(--space-3);
+  }
+
+  .home-page__navigation {
+    margin-top: var(--space-4);
+    gap: var(--space-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page {
+    background-attachment: scroll;
+  }
+
+  .home-page__primary-button:hover {
+    transform: none;
+  }
+
+  .home-page__primary-button:active {
+    transform: translate(2px, 2px);
+  }
+}
