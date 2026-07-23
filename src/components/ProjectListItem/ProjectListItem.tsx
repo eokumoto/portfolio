@@ -21,7 +21,7 @@ export function ProjectListItem({
 }: ProjectListItemProps) {
   return (
     <Link
-      aria-current={selected ? 'page' : undefined}
+      aria-current={selected ? 'true' : undefined}
       className={`project-list-item${selected ? ' is-selected' : ''}`}
       to={to}
     >
@@ -34,11 +34,13 @@ export function ProjectListItem({
       </div>
 
       <div className="project-list-item__content">
-        {project.status && (
-          <p className="project-list-item__status">
-            {statusLabels[project.status]}
-          </p>
-        )}
+        <p className="project-list-item__status">
+          {project.status ? (
+            statusLabels[project.status]
+          ) : (
+            <span aria-hidden="true">&nbsp;</span>
+          )}
+        </p>
         <h2 className="project-list-item__title">{project.title}</h2>
         <p className="project-list-item__description">
           {project.shortDescription}
