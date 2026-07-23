@@ -1,0 +1,61 @@
+:root {
+  /* Color */
+  --color-sky: #9fdcf7;
+  --color-sky-light: #dff5ff;
+  --color-cream: #fff7eb;
+  --color-cream-dark: #f2dfcc;
+  --color-pink-light: #f8d3df;
+  --color-pink: #e89bb3;
+  --color-pink-dark: #b84f74;
+  --color-rose: #963f63;
+  --color-plum: #4f2f46;
+  --color-plum-light: #715066;
+  --color-lavender: #c9b8dd;
+  --color-green: #647f5f;
+  --color-white: #fffdf9;
+  --color-focus: #28799e;
+
+  /* Typography */
+  --font-display: 'Courier New', 'Lucida Console', monospace;
+  --font-body: 'Segoe UI', Atkinson Hyperlegible, Verdana, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-lg: clamp(1.125rem, 1rem + 0.5vw, 1.35rem);
+  --font-size-heading: clamp(2rem, 1.4rem + 3vw, 3.75rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Shape and depth */
+  --border-thin: 2px;
+  --border-chunky: 3px;
+  --radius-pixel: 2px;
+  --shadow-pixel-sm: 3px 3px 0 var(--color-plum-light);
+  --shadow-pixel-md: 5px 5px 0 var(--color-plum-light);
+  --shadow-selected: 0 0 0 3px var(--color-pink-light),
+    5px 5px 0 var(--color-rose);
+
+  /* Layout */
+  --content-width: 68.75rem;
+  --text-width: 45rem;
+  --control-min-size: 2.75rem;
+  --page-gutter: clamp(1rem, 4vw, 2.5rem);
+  --breakpoint-small: 37.5rem;
+  --breakpoint-medium: 48rem;
+
+  /* Motion and layers */
+  --duration-fast: 120ms;
+  --duration-normal: 180ms;
+  --ease-pixel: steps(2, end);
+  --z-content: 1;
+  --z-navigation: 10;
+  --z-overlay: 100;
+}
