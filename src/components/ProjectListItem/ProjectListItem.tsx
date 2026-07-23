@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
 import type { Project, ProjectStatus } from '../../data/projects'
 import { TechnologyTag } from '../TechnologyTag/TechnologyTag'
 
 interface ProjectListItemProps {
+  onSelect?: () => void
   project: Project
   selected?: boolean
-  to?: string
 }
 
 const statusLabels: Record<ProjectStatus, string> = {
@@ -15,15 +14,17 @@ const statusLabels: Record<ProjectStatus, string> = {
 }
 
 export function ProjectListItem({
+  onSelect,
   project,
   selected = false,
-  to = `/projects/${project.slug}`,
 }: ProjectListItemProps) {
   return (
-    <Link
-      aria-current={selected ? 'true' : undefined}
+    <li
+      aria-selected={selected}
       className={`project-list-item${selected ? ' is-selected' : ''}`}
-      to={to}
+      id={`project-option-${project.slug}`}
+      onClick={onSelect}
+      role="option"
     >
       <div className="project-list-item__thumbnail">
         {project.thumbnail ? (
@@ -56,6 +57,6 @@ export function ProjectListItem({
           ))}
         </ul>
       </div>
-    </Link>
+    </li>
   )
 }

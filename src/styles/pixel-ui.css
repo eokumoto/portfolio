@@ -194,6 +194,8 @@
   background: var(--color-cream);
   box-shadow: var(--shadow-pixel-sm);
   color: var(--color-plum);
+  cursor: pointer;
+  list-style: none;
   text-align: left;
   text-decoration: none;
   transition:
@@ -212,14 +214,14 @@
   outline-offset: 4px;
 }
 
-.project-list-item[aria-current='page'],
+.project-list-item[aria-selected='true'],
 .project-list-item.is-selected {
   border-color: var(--color-plum);
   background: var(--color-pink-light);
   box-shadow: var(--shadow-selected);
 }
 
-.project-list-item[aria-current='page']::before,
+.project-list-item[aria-selected='true']::before,
 .project-list-item.is-selected::before {
   content: '▶';
   position: absolute;

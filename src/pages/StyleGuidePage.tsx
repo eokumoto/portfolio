@@ -109,7 +109,15 @@ export function StyleGuidePage() {
 
         <section className="style-guide-section" aria-labelledby="project-title">
           <h2 id="project-title">ProjectListItem</h2>
-          <ProjectListItem project={exampleProject} selected />
+          <ul
+            aria-activedescendant={`project-option-${exampleProject.slug}`}
+            aria-label="Example project selector"
+            className="project-list"
+            role="listbox"
+            tabIndex={0}
+          >
+            <ProjectListItem project={exampleProject} selected />
+          </ul>
         </section>
       </div>
     </main>

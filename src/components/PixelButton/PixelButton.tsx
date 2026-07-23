@@ -83,6 +83,7 @@ export function PixelButton(props: PixelButtonProps) {
   }
 
   const {
+    'aria-describedby': ariaDescribedBy,
     disabled,
     name,
     onClick,
@@ -92,6 +93,7 @@ export function PixelButton(props: PixelButtonProps) {
 
   return (
     <button
+      aria-describedby={ariaDescribedBy}
       aria-pressed={selected || undefined}
       className={classes}
       disabled={disabled}
