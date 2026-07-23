@@ -57,7 +57,7 @@ export function ProjectsPage() {
   }
 
   return (
-    <main className="page-shell projects-page">
+    <main className="projects-page">
       <div className="projects-page__frame">
         <div className="page-header">
           <BackButton label="Back to Home" to="/" />
