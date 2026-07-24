@@ -36,25 +36,24 @@
   width: fit-content;
   max-width: min(100%, 46rem);
   padding: var(--space-3) clamp(var(--space-4), 3vw, var(--space-6));
-  border: var(--border-chunky) solid var(--color-plum);
-  border-radius: var(--radius-pixel);
-  background: var(--color-cream);
-  box-shadow:
-    inset 0 0 0 2px var(--color-pink),
-    4px 4px 0 var(--color-plum-light);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
   text-align: center;
 }
 
 .home-page__title h1 {
   margin: 0;
-  font-family: var(--font-display);
+  color: var(--project-heading-text);
+  font-family: var(--font-project-heading);
   font-size: clamp(2.15rem, 6.5vw, 4.25rem);
+  font-weight: 400;
   line-height: 1.08;
-  letter-spacing: 0.015em;
+  letter-spacing: 0;
   text-shadow:
-    2px 0 0 var(--color-pink-light),
-    0 2px 0 var(--color-pink-light),
-    2px 2px 0 var(--color-pink-dark);
+    2px 0 0 var(--project-social-bg),
+    0 2px 0 var(--project-social-bg),
+    2px 2px 0 var(--project-card-inner);
   text-wrap: balance;
 }
 
@@ -67,12 +66,12 @@
 .home-page__subtitle p {
   max-width: none;
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(0.78rem, 2.4vw, 1.08rem);
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  color: var(--project-body-text);
+  font-family: var(--font-project-ui);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .home-page__navigation {
@@ -87,14 +86,51 @@
   width: 100%;
   min-height: 3.25rem;
   padding-inline: 3rem;
-  font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-body));
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.home-page .home-page__primary-button,
+.home-page__footer .social-links--compact .pixel-button {
+  border-color: var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    4px 4px 0 var(--project-social-shadow);
+  color: var(--project-social-text);
+}
+
+.home-page .home-page__primary-button:hover,
+.home-page__footer .social-links--compact .pixel-button:hover {
+  border-color: var(--project-button-hover-border);
+  background: var(--project-tag-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    5px 5px 0 var(--project-social-shadow);
+}
+
+.home-page .home-page__primary-button:active,
+.home-page__footer .social-links--compact .pixel-button:active {
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 2px 0 var(--project-button-highlight),
+    2px 2px 0 var(--project-social-shadow);
+}
+
+.home-page .home-page__primary-button:focus-visible,
+.home-page__footer .social-links--compact .pixel-button:focus-visible {
+  outline-color: var(--project-focus);
 }
 
 .home-page__primary-button::before,
 .home-page__primary-button::after {
   position: absolute;
   top: 50%;
-  color: var(--color-rose);
+  color: var(--project-social-text);
   transform: translateY(-50%);
 }
 
@@ -110,14 +146,6 @@
   font-size: 1.35em;
 }
 
-.home-page__primary-button:hover {
-  transform: translateX(3px);
-}
-
-.home-page__primary-button:active {
-  transform: translate(2px, 2px);
-}
-
 .home-page__footer {
   display: grid;
   justify-items: center;
@@ -127,12 +155,13 @@
 .home-page__footer > p {
   margin-bottom: var(--space-3);
   padding: 0 var(--space-2);
-  border: var(--border-thin) solid var(--color-pink-dark);
-  background: var(--color-cream);
-  box-shadow: 2px 2px 0 var(--color-plum-light);
-  font-family: var(--font-display);
-  font-size: var(--font-size-sm);
-  font-weight: 800;
+  border: var(--border-thin) solid var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow: 2px 2px 0 var(--project-social-shadow);
+  color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .home-page__footer .social-links {
@@ -145,6 +174,14 @@
   height: 3rem;
   min-height: 3rem;
   padding: 0;
+  font-family: var(--font-project-ui);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.home-page__footer .social-links__marker {
+  font-family: var(--font-project-ui);
+  font-weight: 400;
 }
 
 @media (min-width: 48rem) {
