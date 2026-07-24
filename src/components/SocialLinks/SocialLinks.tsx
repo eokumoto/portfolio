@@ -17,9 +17,9 @@ const portfolioSocialLinks: SocialLink[] = [
 ]
 
 const compactMarkers: Record<string, string> = {
-  Email: '@',
-  GitHub: 'GH',
-  LinkedIn: 'in',
+  Email: 'EMAIL',
+  GitHub: 'GITHUB',
+  LinkedIn: 'LINKEDIN',
 }
 
 export function SocialLinks({
