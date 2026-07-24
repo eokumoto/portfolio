@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400&family=VT323&display=swap');
 
 :root {
   /* Color */
@@ -30,14 +30,11 @@
   --project-tag-bg: #ffe8de;
   --project-tag-border: #dc9095;
   --project-tag-text: #994256;
-  --project-primary-bg: #ed91aa;
-  --project-primary-border: #b6536e;
-  --project-primary-text: #642c3e;
-  --project-primary-highlight: #ffd4d5;
-  --project-primary-shadow: #ba7078;
-  --project-primary-disabled-bg: #f7d5d0;
-  --project-primary-disabled-border: #d59a9b;
-  --project-primary-disabled-text: #8f6269;
+  --project-button-hover-border: #b6536e;
+  --project-button-highlight: #ffd4d5;
+  --project-button-disabled-bg: #f7d5d0;
+  --project-button-disabled-border: #d59a9b;
+  --project-button-disabled-text: #8f6269;
   --project-social-bg: #fff0df;
   --project-social-border: #d88990;
   --project-social-text: #8e4052;
@@ -50,8 +47,9 @@
 
   /* Typography */
   --font-display: 'Courier New', 'Lucida Console', monospace;
-  --font-project-display:
-    'Pixelify Sans', 'Courier New', 'Lucida Console', monospace;
+  --font-project-heading:
+    'Silkscreen', 'Courier New', 'Lucida Console', monospace;
+  --font-project-ui: 'VT323', 'Courier New', 'Lucida Console', monospace;
   --font-body: 'Segoe UI', Atkinson Hyperlegible, Verdana, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

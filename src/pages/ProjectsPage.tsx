@@ -108,7 +108,6 @@ export function ProjectsPage() {
               className="projects-page__open-button"
               disabled={!selectedProject || isComingSoon}
               onClick={openSelectedProject}
-              variant="primary"
             >
               OPEN SELECTED PROJECT
             </PixelButton>

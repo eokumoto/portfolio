@@ -24,50 +24,69 @@
 .projects-page .page-header {
   width: min(100%, 73.75rem);
   margin-inline: auto;
-  margin-bottom: clamp(var(--space-1), 1svh, var(--space-2));
+  margin-bottom: clamp(
+    calc(var(--space-1) / 2),
+    0.4svh,
+    var(--space-1)
+  );
 }
 
 .projects-page .back-button {
   margin-bottom: clamp(var(--space-1), 0.8svh, var(--space-2));
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.projects-page .back-button,
+.projects-page .projects-page__open-button {
   border-color: var(--project-social-border);
   background: var(--project-social-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-primary-highlight),
+    inset 0 4px 0 var(--project-button-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
-  font-family: var(--font-project-display);
-  text-transform: uppercase;
 }
 
-.projects-page .back-button:hover {
-  border-color: var(--project-primary-border);
+.projects-page .back-button:hover,
+.projects-page .projects-page__open-button:hover {
+  border-color: var(--project-button-hover-border);
   background: var(--project-tag-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-primary-highlight),
+    inset 0 4px 0 var(--project-button-highlight),
     5px 5px 0 var(--project-social-shadow);
 }
 
-.projects-page .back-button:active {
+.projects-page .back-button:active,
+.projects-page .projects-page__open-button:active {
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 2px 0 var(--project-primary-highlight),
+    inset 0 2px 0 var(--project-button-highlight),
     2px 2px 0 var(--project-social-shadow);
 }
 
-.projects-page .back-button:focus-visible {
+.projects-page .back-button:focus-visible,
+.projects-page .projects-page__open-button:focus-visible {
   outline-color: var(--project-focus);
 }
 
 .projects-page .page-heading {
+  margin-top: calc(
+    0px - clamp(var(--space-1), 0.6svh, var(--space-2))
+  );
   margin-bottom: 0;
 }
 
 .projects-page .page-heading__title {
   color: var(--project-heading-text);
-  font-family: var(--font-project-display);
-  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.75rem, 3.8vw, 2.7rem);
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.08;
 }
 
@@ -141,9 +160,9 @@
   align-self: center;
   justify-self: center;
   color: var(--project-status-text);
-  font-family: var(--font-project-display);
+  font-family: var(--font-project-ui);
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   min-width: 0;
 }
@@ -165,7 +184,7 @@
   transform: translateY(-50%);
   z-index: 1;
   color: var(--project-card-selected-border);
-  font-family: var(--font-project-display);
+  font-family: var(--font-project-ui);
   text-shadow: 1px 1px 0 var(--project-social-bg);
 }
 
@@ -212,7 +231,10 @@
 .projects-page .project-list-item__status {
   min-height: 0;
   color: var(--project-status-text);
-  font-family: var(--font-project-display);
+  font-family: var(--font-project-ui);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0;
   line-height: 1.25rem;
   text-transform: uppercase;
 }
@@ -223,8 +245,10 @@
 
 .projects-page .project-list-item__title {
   color: var(--project-heading-text);
-  font-family: var(--font-project-display);
-  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-family: var(--font-project-ui);
+  font-size: clamp(1.2rem, 1.7vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0;
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
@@ -260,7 +284,10 @@
   background: var(--project-tag-bg);
   color: var(--project-tag-text);
   box-shadow: none;
-  font-family: var(--font-project-display);
+  font-family: var(--font-project-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
   text-transform: uppercase;
   white-space: normal;
   overflow-wrap: anywhere;
@@ -288,43 +315,19 @@
 .projects-page__open-button {
   width: min(100%, 23rem);
   flex: 0 1 23rem;
-  border-color: var(--project-primary-border);
-  background: var(--project-primary-bg);
-  box-shadow:
-    inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-primary-highlight),
-    5px 5px 0 var(--project-primary-shadow);
-  color: var(--project-primary-text);
-  font-family: var(--font-project-display);
-}
-
-.projects-page__open-button:hover {
-  border-color: var(--project-primary-border);
-  background: var(--project-primary-highlight);
-  box-shadow:
-    inset 0 0 0 2px var(--project-primary-bg),
-    inset 0 4px 0 var(--project-social-bg),
-    6px 6px 0 var(--project-primary-shadow);
-}
-
-.projects-page__open-button:active {
-  box-shadow:
-    inset 0 0 0 2px var(--project-primary-border),
-    inset 0 2px 0 var(--project-primary-highlight),
-    2px 2px 0 var(--project-primary-shadow);
-}
-
-.projects-page__open-button:focus-visible {
-  outline-color: var(--project-focus);
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .projects-page__open-button:disabled {
-  border-color: var(--project-primary-disabled-border);
-  background: var(--project-primary-disabled-bg);
+  border-color: var(--project-button-disabled-border);
+  background: var(--project-button-disabled-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-social-bg),
-    2px 2px 0 var(--project-card-shadow);
-  color: var(--project-primary-disabled-text);
+    2px 2px 0 var(--project-social-shadow);
+  color: var(--project-button-disabled-text);
   opacity: 0.82;
 }
 
@@ -352,29 +355,34 @@
   background: var(--project-social-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-primary-highlight),
+    inset 0 4px 0 var(--project-button-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
-  font-family: var(--font-project-display);
+  font-family: var(--font-project-ui);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .projects-page__actions .social-links__marker {
-  font-family: var(--font-project-display);
+  font-family: var(--font-project-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .projects-page__actions .social-links--compact .pixel-button:hover {
-  border-color: var(--project-primary-border);
+  border-color: var(--project-button-hover-border);
   background: var(--project-tag-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-primary-highlight),
+    inset 0 4px 0 var(--project-button-highlight),
     5px 5px 0 var(--project-social-shadow);
 }
 
 .projects-page__actions .social-links--compact .pixel-button:active {
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 2px 0 var(--project-primary-highlight),
+    inset 0 2px 0 var(--project-button-highlight),
     2px 2px 0 var(--project-social-shadow);
 }
 
@@ -408,11 +416,15 @@
   }
 
   .projects-page .page-header {
-    margin-bottom: var(--space-1);
+    margin-bottom: calc(var(--space-1) / 2);
   }
 
   .projects-page .back-button {
     margin-bottom: var(--space-1);
+  }
+
+  .projects-page .page-heading {
+    margin-top: calc(0px - var(--space-1));
   }
 
   .projects-page .project-list {
@@ -475,7 +487,7 @@
   .projects-page .technology-tag {
     min-height: 1.6rem;
     padding: 0.15rem var(--space-2);
-    font-size: clamp(0.65rem, 2.7vw, var(--font-size-xs));
+    font-size: clamp(0.875rem, 3.2vw, 1rem);
   }
 
   .projects-page .project-list-item[aria-selected='true']::before,
