@@ -49,6 +49,9 @@
     inset 0 4px 0 var(--project-button-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .projects-page .back-button:hover,
@@ -126,16 +129,16 @@
 
 .projects-page .project-list-item {
   grid-template-columns:
-    clamp(7.5rem, 18vw, 13.75rem)
+    clamp(6rem, 10vw, 7.5rem)
     minmax(0, 1fr)
     auto;
-  min-height: 10rem;
+  min-height: 8rem;
   min-width: 0;
   max-width: none;
   height: auto;
   overflow: hidden;
-  gap: clamp(var(--space-3), 2vw, var(--space-5));
-  padding: var(--space-4);
+  gap: clamp(var(--space-3), 1.5vw, var(--space-4));
+  padding: var(--space-3);
   align-items: center;
   border-color: var(--project-card-border);
   background: transparent;
@@ -195,7 +198,7 @@
   min-height: 0;
   min-width: 0;
   height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-color: var(--project-tag-border);
   background: var(--project-tag-bg);
@@ -229,24 +232,13 @@
 }
 
 .projects-page .project-list-item__status {
-  min-height: 0;
-  color: var(--project-status-text);
-  font-family: var(--font-project-ui);
-  font-size: 0.95rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.25rem;
-  text-transform: uppercase;
-}
-
-.projects-page .project-list-item__status:has(> [aria-hidden='true']) {
   display: none;
 }
 
 .projects-page .project-list-item__title {
   color: var(--project-heading-text);
-  font-family: var(--font-project-ui);
-  font-size: clamp(1.2rem, 1.7vw, 1.4rem);
+  font-family: var(--font-project-heading);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
   font-weight: 400;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -315,10 +307,7 @@
 .projects-page__open-button {
   width: min(100%, 23rem);
   flex: 0 1 23rem;
-  font-family: var(--font-project-ui);
   font-size: 1.125rem;
-  font-weight: 400;
-  letter-spacing: 0;
 }
 
 .projects-page__open-button:disabled {
@@ -439,12 +428,12 @@
 
   .projects-page .project-list-item {
     grid-template-columns:
-      clamp(5.5rem, 24vw, 7.5rem)
+      clamp(4.5rem, 22vw, 6rem)
       minmax(0, 1fr)
       auto;
     gap: clamp(var(--space-2), 2vw, var(--space-3));
-    min-height: 8rem;
-    padding: clamp(var(--space-2), 2.5vw, var(--space-3));
+    min-height: 7rem;
+    padding: var(--space-2);
     align-items: center;
   }
 
@@ -466,13 +455,8 @@
     font-size: 1.5rem;
   }
 
-  .projects-page .project-list-item__status {
-    min-height: 0;
-    line-height: 1rem;
-  }
-
   .projects-page .project-list-item__title {
-    font-size: clamp(0.85rem, 3.5vw, 1rem);
+    font-size: clamp(0.875rem, 3.3vw, 1rem);
   }
 
   .projects-page .project-list-item__description {

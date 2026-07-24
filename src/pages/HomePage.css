@@ -92,10 +92,7 @@
   width: 100%;
   min-height: 3.25rem;
   padding-inline: 3rem;
-  font-family: var(--font-project-ui);
   font-size: 1.125rem;
-  font-weight: 400;
-  letter-spacing: 0;
 }
 
 .home-page .home-page__primary-button,
@@ -107,6 +104,9 @@
     inset 0 4px 0 var(--project-button-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .home-page .home-page__primary-button:hover,
