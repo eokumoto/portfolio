@@ -11,35 +11,28 @@ export function HomePage() {
             <h1>EMI OKUMOTO</h1>
             <div className="home-page__subtitle">
               <p>SOFTWARE ENGINEERING STUDENT</p>
+              <p>ASPIRING GAME DEVELOPER</p>
             </div>
           </header>
 
           <nav className="home-page__navigation" aria-label="Portfolio">
-            <PixelButton
-              className="home-page__primary-button"
-              to="/projects"
-            >
-              PROJECTS
-            </PixelButton>
-            <PixelButton
-              className="home-page__primary-button"
-              to="/about"
-            >
-              ABOUT
-            </PixelButton>
-            <PixelButton
-              className="home-page__primary-button"
-              to="/resume"
-            >
-              RESUME
-            </PixelButton>
+            <div className="home-page__menu-buttons">
+              <PixelButton
+                className="home-page__primary-button"
+                to="/projects"
+              >
+                PROJECTS
+              </PixelButton>
+              <PixelButton className="home-page__primary-button" to="/about">
+                ABOUT
+              </PixelButton>
+              <PixelButton className="home-page__primary-button" to="/resume">
+                RESUME
+              </PixelButton>
+            </div>
+            <SocialLinks compact />
           </nav>
         </div>
-
-        <footer className="home-page__footer">
-          <p>LET&apos;S CONNECT!</p>
-          <SocialLinks compact />
-        </footer>
       </div>
     </main>
   )
