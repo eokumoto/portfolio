@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
 :root {
   /* Color */
   --color-sky: #9fdcf7;
@@ -48,6 +50,8 @@
 
   /* Typography */
   --font-display: 'Courier New', 'Lucida Console', monospace;
+  --font-project-display:
+    'Pixelify Sans', 'Courier New', 'Lucida Console', monospace;
   --font-body: 'Segoe UI', Atkinson Hyperlegible, Verdana, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;

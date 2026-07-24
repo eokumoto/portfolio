@@ -72,7 +72,7 @@ export function ProjectsPage() {
       <div className="projects-page__frame">
         <div className="page-header">
           <BackButton label="Back to Home" to="/" />
-          <PageHeading title="Select Project" />
+          <PageHeading title="SELECT PROJECT" />
         </div>
 
         <ul
@@ -110,7 +110,7 @@ export function ProjectsPage() {
               onClick={openSelectedProject}
               variant="primary"
             >
-              Open Selected Project
+              OPEN SELECTED PROJECT
             </PixelButton>
 
             <SocialLinks compact />

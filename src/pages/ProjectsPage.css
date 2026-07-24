@@ -4,7 +4,7 @@
   overflow-x: hidden;
   overflow-y: hidden;
   background-color: var(--color-sky);
-  background-image: url('/images/backgrounds/projects-mobile.png');
+  background-image: url('/images/backgrounds/project-mobile.jpeg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -24,11 +24,11 @@
 .projects-page .page-header {
   width: min(100%, 73.75rem);
   margin-inline: auto;
-  margin-bottom: var(--space-4);
+  margin-bottom: clamp(var(--space-1), 1svh, var(--space-2));
 }
 
 .projects-page .back-button {
-  margin-bottom: var(--space-4);
+  margin-bottom: clamp(var(--space-1), 0.8svh, var(--space-2));
   border-color: var(--project-social-border);
   background: var(--project-social-bg);
   box-shadow:
@@ -36,6 +36,8 @@
     inset 0 4px 0 var(--project-primary-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
+  font-family: var(--font-project-display);
+  text-transform: uppercase;
 }
 
 .projects-page .back-button:hover {
@@ -64,7 +66,9 @@
 
 .projects-page .page-heading__title {
   color: var(--project-heading-text);
-  font-size: clamp(1.9rem, 4.5vw, 3.1rem);
+  font-family: var(--font-project-display);
+  font-size: clamp(1.85rem, 4vw, 2.85rem);
+  line-height: 1.08;
 }
 
 .projects-page .project-list {
@@ -137,7 +141,7 @@
   align-self: center;
   justify-self: center;
   color: var(--project-status-text);
-  font-family: var(--font-display);
+  font-family: var(--font-project-display);
   font-size: 2rem;
   font-weight: 800;
   line-height: 1;
@@ -161,6 +165,7 @@
   transform: translateY(-50%);
   z-index: 1;
   color: var(--project-card-selected-border);
+  font-family: var(--font-project-display);
   text-shadow: 1px 1px 0 var(--project-social-bg);
 }
 
@@ -207,7 +212,9 @@
 .projects-page .project-list-item__status {
   min-height: 0;
   color: var(--project-status-text);
+  font-family: var(--font-project-display);
   line-height: 1.25rem;
+  text-transform: uppercase;
 }
 
 .projects-page .project-list-item__status:has(> [aria-hidden='true']) {
@@ -216,7 +223,9 @@
 
 .projects-page .project-list-item__title {
   color: var(--project-heading-text);
+  font-family: var(--font-project-display);
   font-size: clamp(1rem, 1.5vw, 1.25rem);
+  text-transform: uppercase;
   overflow-wrap: anywhere;
 }
 
@@ -251,6 +260,8 @@
   background: var(--project-tag-bg);
   color: var(--project-tag-text);
   box-shadow: none;
+  font-family: var(--font-project-display);
+  text-transform: uppercase;
   white-space: normal;
   overflow-wrap: anywhere;
 }
@@ -284,6 +295,7 @@
     inset 0 4px 0 var(--project-primary-highlight),
     5px 5px 0 var(--project-primary-shadow);
   color: var(--project-primary-text);
+  font-family: var(--font-project-display);
 }
 
 .projects-page__open-button:hover {
@@ -343,6 +355,11 @@
     inset 0 4px 0 var(--project-primary-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
+  font-family: var(--font-project-display);
+}
+
+.projects-page__actions .social-links__marker {
+  font-family: var(--font-project-display);
 }
 
 .projects-page__actions .social-links--compact .pixel-button:hover {
@@ -367,7 +384,7 @@
 
 @media (min-width: 48rem) {
   .projects-page {
-    background-image: url('/images/backgrounds/projects-desktop.png');
+    background-image: url('/images/backgrounds/project-desktop.jpeg');
   }
 }
 
@@ -391,11 +408,11 @@
   }
 
   .projects-page .page-header {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
   }
 
   .projects-page .back-button {
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-1);
   }
 
   .projects-page .project-list {
