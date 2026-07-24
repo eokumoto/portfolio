@@ -15,6 +15,37 @@
   --color-white: #fffdf9;
   --color-focus: #28799e;
 
+  /* Select Project palette */
+  --project-heading-text: #6d3043;
+  --project-body-text: #5f3941;
+  --project-status-text: #9f4c60;
+  --project-card-border: #d78d95;
+  --project-card-inner: #f2bdc1;
+  --project-card-shadow: #bf7b80;
+  --project-card-selected-border: #b8566d;
+  --project-card-hover-bg: rgba(255, 224, 218, 0.2);
+  --project-card-selected-bg: rgba(255, 226, 224, 0.28);
+  --project-tag-bg: #ffe8de;
+  --project-tag-border: #dc9095;
+  --project-tag-text: #994256;
+  --project-primary-bg: #ed91aa;
+  --project-primary-border: #b6536e;
+  --project-primary-text: #642c3e;
+  --project-primary-highlight: #ffd4d5;
+  --project-primary-shadow: #ba7078;
+  --project-primary-disabled-bg: #f7d5d0;
+  --project-primary-disabled-border: #d59a9b;
+  --project-primary-disabled-text: #8f6269;
+  --project-social-bg: #fff0df;
+  --project-social-border: #d88990;
+  --project-social-text: #8e4052;
+  --project-social-shadow: #c17b80;
+  --project-focus: #963b55;
+  --project-divider: #dc969c;
+  --project-scrollbar-track: #f7d8c9;
+  --project-scrollbar-thumb: #c96e7c;
+  --project-scrollbar-hover: #d88187;
+
   /* Typography */
   --font-display: 'Courier New', 'Lucida Console', monospace;
   --font-body: 'Segoe UI', Atkinson Hyperlegible, Verdana, sans-serif;

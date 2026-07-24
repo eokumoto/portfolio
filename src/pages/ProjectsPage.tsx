@@ -10,8 +10,9 @@ import './ProjectsPage.css'
 
 export function ProjectsPage() {
   const navigate = useNavigate()
-  const [selectedIndex, setSelectedIndex] = useState(0)
-  const selectedProject = projects[selectedIndex]
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const selectedProject =
+    selectedIndex === null ? undefined : projects[selectedIndex]
   const isComingSoon = selectedProject?.status === 'coming-soon'
 
   useEffect(() => {
@@ -25,14 +26,24 @@ export function ProjectsPage() {
   }, [selectedProject])
 
   function handleSelectorKeyDown(event: KeyboardEvent<HTMLUListElement>) {
+    if (projects.length === 0) {
+      return
+    }
+
     let nextIndex: number | undefined
 
     switch (event.key) {
       case 'ArrowDown':
-        nextIndex = Math.min(selectedIndex + 1, projects.length - 1)
+        nextIndex =
+          selectedIndex === null
+            ? 0
+            : Math.min(selectedIndex + 1, projects.length - 1)
         break
       case 'ArrowUp':
-        nextIndex = Math.max(selectedIndex - 1, 0)
+        nextIndex =
+          selectedIndex === null
+            ? projects.length - 1
+            : Math.max(selectedIndex - 1, 0)
         break
       case 'Home':
         nextIndex = 0
@@ -90,7 +101,9 @@ export function ProjectsPage() {
           <div className="projects-page__action-row">
             <PixelButton
               aria-describedby={
-                isComingSoon ? 'project-availability-message' : undefined
+                !selectedProject || isComingSoon
+                  ? 'project-availability-message'
+                  : undefined
               }
               className="projects-page__open-button"
               disabled={!selectedProject || isComingSoon}
@@ -108,7 +121,11 @@ export function ProjectsPage() {
             id="project-availability-message"
             role="status"
           >
-            {isComingSoon ? 'This project is coming soon.' : ''}
+            {!selectedProject
+              ? 'Select a project first.'
+              : isComingSoon
+                ? 'This project is coming soon.'
+                : ''}
           </p>
         </div>
       </div>
