@@ -18,6 +18,10 @@
   --page-panel-bg: rgba(255, 247, 235, 0.34);
   --color-focus: #28799e;
 
+  /* Shared button edge and depth */
+  --button-border: #c96a82;
+  --button-shadow: #a84f67;
+
   /* Select Project palette */
   --project-heading-text: #6d3043;
   --project-body-text: #5f3941;
@@ -33,15 +37,15 @@
   --project-tag-bg: #ffe8de;
   --project-tag-border: #dc9095;
   --project-tag-text: #994256;
-  --project-button-hover-border: #b6536e;
+  --project-button-hover-border: var(--button-border);
   --project-button-highlight: #ffd4d5;
   --project-button-disabled-bg: #f7d5d0;
-  --project-button-disabled-border: #d59a9b;
+  --project-button-disabled-border: var(--button-border);
   --project-button-disabled-text: #8f6269;
   --project-social-bg: #fff0df;
-  --project-social-border: #d88990;
+  --project-social-border: var(--button-border);
   --project-social-text: #8e4052;
-  --project-social-shadow: #c17b80;
+  --project-social-shadow: var(--button-shadow);
   --project-focus: #963b55;
   --project-divider: #dc969c;
   --project-scrollbar-track: #f7d8c9;

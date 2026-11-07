@@ -6,13 +6,13 @@
   justify-content: center;
   gap: var(--space-2);
   padding: 0.65rem 1.15rem;
-  border: var(--border-chunky) solid var(--color-plum);
+  border: var(--border-chunky) solid var(--button-border);
   border-radius: var(--radius-pixel);
   background: var(--color-cream);
   box-shadow:
     inset 0 0 0 2px var(--color-pink),
     inset 0 4px 0 var(--color-white),
-    5px 5px 0 var(--color-plum-light);
+    5px 5px 0 var(--button-shadow);
   color: var(--color-plum);
   cursor: pointer;
   font-family: var(--font-display);
@@ -32,7 +32,7 @@
   box-shadow:
     inset 0 0 0 2px var(--color-pink-dark),
     inset 0 4px 0 var(--color-cream),
-    5px 5px 0 var(--color-plum);
+    5px 5px 0 var(--button-shadow);
 }
 
 .pixel-button:hover,
@@ -41,7 +41,7 @@
   box-shadow:
     inset 0 0 0 2px var(--color-pink-dark),
     inset 0 4px 0 var(--color-cream),
-    6px 6px 0 var(--color-plum);
+    6px 6px 0 var(--button-shadow);
   transform: translate(-2px, -2px);
 }
 
@@ -50,7 +50,7 @@
   box-shadow:
     inset 0 0 0 2px var(--color-pink-dark),
     inset 0 2px 0 var(--color-cream),
-    2px 2px 0 var(--color-plum);
+    2px 2px 0 var(--button-shadow);
   transform: translate(2px, 2px);
 }
 
@@ -64,11 +64,11 @@
 .pixel-button[aria-current='page'],
 .pixel-button.is-selected {
   background: var(--color-pink);
-  border-color: var(--color-plum);
+  border-color: var(--button-border);
   box-shadow:
     inset 0 0 0 2px var(--color-cream),
     inset 0 4px 0 var(--color-pink-light),
-    5px 5px 0 var(--color-rose);
+    5px 5px 0 var(--button-shadow);
 }
 
 .pixel-button[aria-pressed='true']::before,
@@ -80,11 +80,11 @@
 
 .pixel-button:disabled,
 .pixel-button[aria-disabled='true'] {
-  border-color: var(--color-cream-dark);
+  border-color: var(--button-border);
   background: var(--color-cream-dark);
   box-shadow:
     inset 0 0 0 2px #d6c3b5,
-    2px 2px 0 #9f8e96;
+    2px 2px 0 var(--button-shadow);
   color: var(--color-plum-light);
   cursor: not-allowed;
   opacity: 0.65;
