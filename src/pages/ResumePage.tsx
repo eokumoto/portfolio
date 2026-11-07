@@ -4,18 +4,10 @@ import { PixelButton } from '../components/PixelButton/PixelButton'
 import { PixelPanel } from '../components/PixelPanel/PixelPanel'
 import { TechnologyTag } from '../components/TechnologyTag/TechnologyTag'
 import { projects } from '../data/projects'
+import { resumeContent } from '../data/resume'
 import './ResumePage.css'
 
-const languages = ['Java', 'C', 'Python', 'JavaScript', 'SQL']
-const toolsAndConcepts = [
-  'Git',
-  'Object-oriented programming',
-  'Data structures',
-  'Algorithms',
-  'Software design',
-]
-
-const highlightedSlugs = new Set(['poly-problems', 'food-friends'])
+const highlightedSlugs = new Set<string>(resumeContent.highlightedProjectSlugs)
 const highlightedProjects = projects.filter((project) =>
   highlightedSlugs.has(project.slug),
 )
@@ -60,7 +52,7 @@ export function ResumePage() {
       <div className="resume-page__layout">
         <header className="resume-page__header">
           <BackButton label="Back to Home" to="/" />
-          <PageHeading title="Resume" />
+          <PageHeading title={resumeContent.pageTitle} />
         </header>
 
         <div className="resume-page__dashboard">
@@ -68,47 +60,75 @@ export function ResumePage() {
             <PixelPanel className="resume-page__panel resume-page__education">
               <h2>Education</h2>
               <div className="resume-page__education-copy">
-                <strong>B.S. Software Engineering</strong>
-                <span>Cal Poly San Luis Obispo</span>
-                <span>Expected graduation: May 2028</span>
+                <strong>{resumeContent.education.degree}</strong>
+                <span>{resumeContent.education.university}</span>
+                <span>
+                  Expected graduation:{' '}
+                  {resumeContent.education.expectedGraduation}
+                </span>
               </div>
               <div
-                aria-label="Campus artwork placeholder"
+                aria-label={resumeContent.artwork.alt}
                 className="resume-page__art-placeholder"
                 role="img"
               >
-                <span>Campus artwork</span>
-                <strong>TODO</strong>
+                <span>{resumeContent.artwork.label}</span>
+                <strong>{resumeContent.artwork.status}</strong>
               </div>
             </PixelPanel>
 
             <PixelPanel className="resume-page__panel resume-page__links">
               <h2>Links</h2>
               <div className="resume-page__link-list">
-                <PixelButton
-                  aria-describedby="resume-pdf-status"
-                  className="resume-page__link-button"
-                  disabled
-                >
-                  <DocumentIcon />
-                  <span>Resume PDF — TODO</span>
-                </PixelButton>
-                <span className="screen-reader-only" id="resume-pdf-status">
-                  The resume PDF has not been added yet.
-                </span>
-
-                <PixelButton
-                  className="resume-page__link-button"
-                  href="https://github.com/eokumoto"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <GitHubIcon />
-                  <span>GitHub</span>
-                  <span aria-hidden="true" className="resume-page__external-mark">
-                    ↗
-                  </span>
-                </PixelButton>
+                {resumeContent.links.map((link) =>
+                  link.href ? (
+                    <PixelButton
+                      className="resume-page__link-button"
+                      href={link.href}
+                      key={link.id}
+                      rel={link.external ? 'noreferrer' : undefined}
+                      target={link.external ? '_blank' : undefined}
+                    >
+                      {link.icon === 'github' ? (
+                        <GitHubIcon />
+                      ) : (
+                        <DocumentIcon />
+                      )}
+                      <span>{link.label}</span>
+                      {link.external && (
+                        <span
+                          aria-hidden="true"
+                          className="resume-page__external-mark"
+                        >
+                          ↗
+                        </span>
+                      )}
+                    </PixelButton>
+                  ) : (
+                    <div key={link.id}>
+                      <PixelButton
+                        aria-describedby={`${link.id}-status`}
+                        className="resume-page__link-button"
+                        disabled={link.disabled}
+                      >
+                        {link.icon === 'github' ? (
+                          <GitHubIcon />
+                        ) : (
+                          <DocumentIcon />
+                        )}
+                        <span>{link.label}</span>
+                      </PixelButton>
+                      {link.description && (
+                        <span
+                          className="screen-reader-only"
+                          id={`${link.id}-status`}
+                        >
+                          {link.description}
+                        </span>
+                      )}
+                    </div>
+                  ),
+                )}
               </div>
             </PixelPanel>
           </div>
@@ -118,7 +138,7 @@ export function ResumePage() {
               <section className="resume-page__skill-group">
                 <h2>Skills</h2>
                 <ul className="resume-page__language-list">
-                  {languages.map((language) => (
+                  {resumeContent.languages.map((language) => (
                     <li key={language}>{language}</li>
                   ))}
                 </ul>
@@ -127,7 +147,7 @@ export function ResumePage() {
               <section className="resume-page__skill-group resume-page__skill-group--tools">
                 <h2>Tools &amp; Concepts</h2>
                 <ul className="resume-page__tag-list">
-                  {toolsAndConcepts.map((item) => (
+                  {resumeContent.toolsAndConcepts.map((item) => (
                     <li key={item}>
                       <TechnologyTag>{item}</TechnologyTag>
                     </li>

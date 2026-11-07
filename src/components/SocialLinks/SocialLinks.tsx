@@ -1,9 +1,5 @@
 import { PixelButton } from '../PixelButton/PixelButton'
-
-export interface SocialLink {
-  href: string
-  label: string
-}
+import { socialLinks, type SocialLink } from '../../data/site'
 
 interface SocialLinksProps {
   compact?: boolean
@@ -11,12 +7,6 @@ interface SocialLinksProps {
   links?: SocialLink[]
   showIcons?: boolean
 }
-
-const portfolioSocialLinks: SocialLink[] = [
-  { href: 'https://github.com/eokumoto', label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/emiokumoto/', label: 'LinkedIn' },
-  { href: 'mailto:eokumoto@calpoly.edu', label: 'Email' },
-]
 
 const compactMarkers: Record<string, string> = {
   Email: 'EMAIL',
@@ -69,7 +59,7 @@ function SocialIcon({ label }: { label: string }) {
 export function SocialLinks({
   compact = false,
   iconOnly = false,
-  links = portfolioSocialLinks,
+  links = socialLinks,
   showIcons = false,
 }: SocialLinksProps) {
   return (

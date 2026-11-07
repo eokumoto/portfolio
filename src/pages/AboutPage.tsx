@@ -3,6 +3,7 @@ import { PageHeading } from '../components/PageHeading/PageHeading'
 import { PixelPanel } from '../components/PixelPanel/PixelPanel'
 import { SocialLinks } from '../components/SocialLinks/SocialLinks'
 import { TechnologyTag } from '../components/TechnologyTag/TechnologyTag'
+import { aboutContent } from '../data/about'
 import './AboutPage.css'
 
 export function AboutPage() {
@@ -11,68 +12,67 @@ export function AboutPage() {
       <div className="about-page__layout">
         <header className="about-page__header">
           <BackButton label="Back to Home" to="/" />
-          <PageHeading title="ABOUT ME" />
+          <PageHeading title={aboutContent.pageTitle} />
         </header>
 
         <PixelPanel className="about-page__content">
           <div className="about-page__introduction-row">
             <div
-              aria-label="Portrait artwork placeholder"
+              aria-label={aboutContent.artwork.alt}
               className="about-page__art-placeholder"
               role="img"
             >
-              <span>Portrait artwork</span>
-              <strong>TODO</strong>
+              <span>{aboutContent.artwork.label}</span>
+              <strong>{aboutContent.artwork.status}</strong>
             </div>
 
             <div className="about-page__copy">
               <p className="about-page__greeting">
-                HELLO! <span aria-hidden="true">♡</span>
+                {aboutContent.greeting}{' '}
+                <span aria-hidden="true">
+                  {aboutContent.greetingDecoration}
+                </span>
               </p>
               <p className="about-page__introduction">
-                I&apos;m a 3rd Year Software Engineering Student at Cal Poly San
-                Luis Obispo.
+                {aboutContent.introduction}
               </p>
 
               <section
                 aria-labelledby="about-interests-heading"
                 className="about-page__interests"
               >
-                <h2 id="about-interests-heading">INTERESTS</h2>
+                <h2 id="about-interests-heading">
+                  {aboutContent.interestsHeading}
+                </h2>
                 <ul>
-                  <li>
-                    <TechnologyTag>Game development</TechnologyTag>
-                  </li>
-                  <li>
-                    <TechnologyTag>UI/UX design</TechnologyTag>
-                  </li>
+                  {aboutContent.interests.map((interest) => (
+                    <li key={interest}>
+                      <TechnologyTag>{interest}</TechnologyTag>
+                    </li>
+                  ))}
                 </ul>
               </section>
             </div>
           </div>
 
           <div className="about-page__details">
-            <section className="about-page__detail-card">
-              <h2><span aria-hidden="true">♥</span> What I Like</h2>
-              <ul>
-                <li>Game development</li>
-                <li>UI/UX design</li>
-              </ul>
-            </section>
-
-            <section className="about-page__detail-card">
-              <h2><span aria-hidden="true">◆</span> Currently</h2>
-              <p>B.S. Software Engineering</p>
-              <p>Cal Poly San Luis Obispo</p>
-              <p>Expected graduation: May 2028</p>
-            </section>
-
-            <section className="about-page__detail-card">
-              <h2><span aria-hidden="true">✦</span> Goals</h2>
-              <ul>
-                <li>Aspiring game developer</li>
-              </ul>
-            </section>
+            {aboutContent.details.map((detail) => (
+              <section className="about-page__detail-card" key={detail.title}>
+                <h2>
+                  <span aria-hidden="true">{detail.marker}</span>{' '}
+                  {detail.title}
+                </h2>
+                {detail.display === 'list' ? (
+                  <ul>
+                    {detail.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  detail.items.map((item) => <p key={item}>{item}</p>)
+                )}
+              </section>
+            ))}
           </div>
         </PixelPanel>
 

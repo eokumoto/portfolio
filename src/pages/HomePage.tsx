@@ -1,5 +1,6 @@
 import { PixelButton } from '../components/PixelButton/PixelButton'
 import { SocialLinks } from '../components/SocialLinks/SocialLinks'
+import { siteContent } from '../data/site'
 import './HomePage.css'
 
 export function HomePage() {
@@ -9,28 +10,25 @@ export function HomePage() {
         <div className="home-page__main">
           <header className="home-page__title">
             <img
-              alt="Emi Okumoto — Software Engineering Student — Build, Code, Create!"
+              alt={siteContent.homeLogo.alt}
               className="home-page__logo"
-              height="724"
-              src="/images/emi-logo.png"
-              width="2172"
+              height={siteContent.homeLogo.height}
+              src={siteContent.homeLogo.src}
+              width={siteContent.homeLogo.width}
             />
           </header>
 
           <nav className="home-page__navigation" aria-label="Portfolio">
             <div className="home-page__menu-buttons">
-              <PixelButton
-                className="home-page__primary-button"
-                to="/projects"
-              >
-                Projects
-              </PixelButton>
-              <PixelButton className="home-page__primary-button" to="/about">
-                About
-              </PixelButton>
-              <PixelButton className="home-page__primary-button" to="/resume">
-                Resume
-              </PixelButton>
+              {siteContent.primaryNavigation.map((item) => (
+                <PixelButton
+                  className="home-page__primary-button"
+                  key={item.to}
+                  to={item.to}
+                >
+                  {item.label}
+                </PixelButton>
+              ))}
             </div>
             <SocialLinks compact />
           </nav>
