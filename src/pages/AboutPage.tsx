@@ -11,7 +11,7 @@ export function AboutPage() {
       <div className="about-page__layout">
         <header className="page-header">
           <BackButton label="Back to Home" to="/" />
-          <PageHeading title="About Me" />
+          <PageHeading title="ABOUT ME" />
         </header>
 
         <div className="about-page__content">
@@ -28,7 +28,7 @@ export function AboutPage() {
 
           <PixelPanel className="about-page__text-panel">
             <div className="about-page__copy">
-              <p className="about-page__greeting">Hello!</p>
+              <p className="about-page__greeting">HELLO!</p>
               <p className="about-page__introduction">
                 3rd Year Software Engineering Student at Cal Poly San Luis
                 Obispo
@@ -38,7 +38,7 @@ export function AboutPage() {
                 aria-labelledby="about-interests-heading"
                 className="about-page__interests"
               >
-                <h2 id="about-interests-heading">Interests</h2>
+                <h2 id="about-interests-heading">INTERESTS</h2>
                 <ul>
                   <li>
                     <TechnologyTag>Game development</TechnologyTag>
@@ -51,8 +51,7 @@ export function AboutPage() {
             </div>
 
             <footer className="about-page__contact">
-              <p>Let&apos;s connect!</p>
-              <SocialLinks compact />
+              <SocialLinks />
             </footer>
           </PixelPanel>
         </div>

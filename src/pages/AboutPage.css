@@ -1,8 +1,9 @@
 .about-page {
+  width: 100%;
   min-height: 100svh;
   overflow-x: hidden;
-  background-color: var(--color-sky);
-  background-image: url('/images/backgrounds/projects-mobile.png');
+  background-color: var(--color-cream);
+  background-image: url('/images/backgrounds/about-mobile.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,6 +28,38 @@
 
 .about-page .back-button {
   margin-bottom: var(--space-4);
+  border-color: var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    4px 4px 0 var(--project-social-shadow);
+  color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.about-page .back-button:hover {
+  border-color: var(--project-button-hover-border);
+  background: var(--project-tag-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    5px 5px 0 var(--project-social-shadow);
+}
+
+.about-page .back-button:active {
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 2px 0 var(--project-button-highlight),
+    2px 2px 0 var(--project-social-shadow);
+}
+
+.about-page .back-button:focus-visible {
+  outline-color: var(--project-focus);
 }
 
 .about-page .page-heading {
@@ -34,7 +67,11 @@
 }
 
 .about-page .page-heading__title {
+  color: var(--project-heading-text);
+  font-family: var(--font-project-heading);
   font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .about-page__content {
@@ -50,6 +87,16 @@
   min-width: 0;
 }
 
+.about-page .about-page__art-panel,
+.about-page .about-page__text-panel {
+  border-color: var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    4px 4px 0 var(--project-social-shadow);
+  color: var(--project-body-text);
+}
+
 .about-page__art-panel {
   display: grid;
   padding: clamp(var(--space-3), 2vw, var(--space-4));
@@ -61,16 +108,20 @@
   min-height: clamp(13rem, 50vw, 22rem);
   place-content: center;
   gap: var(--space-2);
-  border: var(--border-thin) dashed var(--color-pink-dark);
-  background: var(--color-pink-light);
-  color: var(--color-plum-light);
-  font-family: var(--font-display);
+  border: var(--border-thin) dashed var(--project-tag-border);
+  background: var(--project-tag-bg);
+  color: var(--project-tag-text);
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
   text-align: center;
   text-transform: uppercase;
 }
 
 .about-page__art-placeholder strong {
-  color: var(--color-rose);
+  color: var(--project-status-text);
+  font-family: var(--font-project-ui);
+  font-weight: 400;
   font-size: var(--font-size-lg);
 }
 
@@ -89,15 +140,17 @@
 
 .about-page__greeting {
   margin: 0;
-  color: var(--color-rose);
-  font-family: var(--font-display);
+  color: var(--project-heading-text);
+  font-family: var(--font-project-ui);
   font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.2;
 }
 
 .about-page__introduction {
   margin: 0;
+  color: var(--project-body-text);
+  font-family: var(--font-body);
   font-size: var(--font-size-lg);
   line-height: 1.65;
 }
@@ -109,8 +162,11 @@
 
 .about-page__interests h2 {
   margin: 0;
-  color: var(--color-rose);
+  color: var(--project-heading-text);
+  font-family: var(--font-project-ui);
   font-size: var(--font-size-lg);
+  font-weight: 400;
+  letter-spacing: 0;
 }
 
 .about-page__interests ul {
@@ -122,37 +178,81 @@
   list-style: none;
 }
 
+.about-page .technology-tag {
+  min-height: 1.75rem;
+  padding: var(--space-1) var(--space-3);
+  border-color: var(--project-tag-border);
+  background: var(--project-tag-bg);
+  box-shadow: none;
+  color: var(--project-tag-text);
+  font-family: var(--font-project-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .about-page__contact {
   display: grid;
   justify-items: center;
-  gap: var(--space-3);
   padding-top: var(--space-4);
-  border-top: var(--border-thin) solid var(--color-pink);
-}
-
-.about-page__contact > p {
-  margin: 0;
-  color: var(--color-rose);
-  font-family: var(--font-display);
-  font-size: var(--font-size-sm);
-  font-weight: 800;
+  border-top: var(--border-thin) solid var(--project-divider);
 }
 
 .about-page__contact .social-links {
-  gap: var(--space-3);
+  display: grid;
+  width: min(100%, 34rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(var(--space-1), 1.5vw, var(--space-3));
 }
 
-.about-page__contact .social-links--compact .pixel-button {
-  width: 3rem;
-  min-width: 3rem;
-  height: 3rem;
-  min-height: 3rem;
-  padding: 0;
+.about-page__contact .social-links > li {
+  min-width: 0;
+}
+
+.about-page__contact .pixel-button {
+  width: 100%;
+  min-width: 0;
+  padding-inline: clamp(0.35rem, 2vw, 0.75rem);
+  border-color: var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    4px 4px 0 var(--project-social-shadow);
+  color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.about-page__contact .pixel-button:hover {
+  border-color: var(--project-button-hover-border);
+  background: var(--project-tag-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    5px 5px 0 var(--project-social-shadow);
+}
+
+.about-page__contact .pixel-button:active {
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 2px 0 var(--project-button-highlight),
+    2px 2px 0 var(--project-social-shadow);
+}
+
+.about-page__contact .pixel-button:focus-visible {
+  outline-color: var(--project-focus);
 }
 
 @media (min-width: 48rem) {
   .about-page {
-    background-image: url('/images/backgrounds/projects-desktop.png');
+    background-image: url('/images/backgrounds/about-desktop.png');
   }
 
   .about-page__content {

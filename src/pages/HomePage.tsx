@@ -11,7 +11,6 @@ export function HomePage() {
             <h1>EMI OKUMOTO</h1>
             <div className="home-page__subtitle">
               <p>SOFTWARE ENGINEERING STUDENT</p>
-              <p>ASPIRING GAME DEVELOPER</p>
             </div>
           </header>
 
