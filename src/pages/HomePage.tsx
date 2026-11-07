@@ -8,10 +8,13 @@ export function HomePage() {
       <div className="home-page__layout">
         <div className="home-page__main">
           <header className="home-page__title">
-            <h1>EMI OKUMOTO</h1>
-            <div className="home-page__subtitle">
-              <p>SOFTWARE ENGINEERING STUDENT</p>
-            </div>
+            <img
+              alt="Emi Okumoto — Software Engineering Student — Build, Code, Create!"
+              className="home-page__logo"
+              height="724"
+              src="/images/Title.png"
+              width="2172"
+            />
           </header>
 
           <nav className="home-page__navigation" aria-label="Portfolio">
@@ -20,13 +23,13 @@ export function HomePage() {
                 className="home-page__primary-button"
                 to="/projects"
               >
-                PROJECTS
+                Projects
               </PixelButton>
               <PixelButton className="home-page__primary-button" to="/about">
-                ABOUT
+                About
               </PixelButton>
               <PixelButton className="home-page__primary-button" to="/resume">
-                RESUME
+                Resume
               </PixelButton>
             </div>
             <SocialLinks compact />

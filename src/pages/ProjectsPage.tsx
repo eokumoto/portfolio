@@ -112,7 +112,7 @@ export function ProjectsPage() {
               OPEN SELECTED PROJECT
             </PixelButton>
 
-            <SocialLinks compact />
+            <SocialLinks compact iconOnly />
           </div>
 
           <p

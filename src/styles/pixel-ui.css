@@ -99,7 +99,7 @@
   padding: clamp(var(--space-4), 4vw, var(--space-6));
   border: var(--border-chunky) solid var(--color-pink);
   border-radius: var(--radius-pixel);
-  background: var(--color-cream);
+  background: var(--page-panel-bg);
   box-shadow: var(--shadow-pixel-md);
 }
 

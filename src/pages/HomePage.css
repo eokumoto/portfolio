@@ -1,4 +1,7 @@
 .home-page {
+  --home-control-bg: var(--project-tag-bg);
+  --home-control-hover-bg: var(--color-pink-light);
+  --home-control-highlight: var(--project-social-bg);
   min-height: 100svh;
   overflow-x: hidden;
   background-color: var(--color-sky);
@@ -27,63 +30,37 @@
 .home-page__main {
   display: grid;
   width: 100%;
-  align-self: center;
+  align-self: start;
   justify-items: center;
-  padding-block: var(--space-5);
+  padding-block: clamp(var(--space-6), 8svh, 5rem) var(--space-5);
 }
 
 .home-page__title {
-  width: fit-content;
-  max-width: min(100%, 46rem);
-  padding: var(--space-3) clamp(var(--space-4), 3vw, var(--space-6));
+  width: min(78vw, 68rem);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
-  text-align: center;
 }
 
-.home-page__title h1 {
+.home-page__logo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   margin: 0;
-  color: var(--project-social-bg);
-  font-family: var(--font-project-heading);
-  font-size: clamp(2.15rem, 9vw, 5.75rem);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  paint-order: stroke fill;
-  -webkit-text-stroke: 2px var(--project-heading-text);
-  text-shadow:
-    -2px -2px 0 var(--project-button-highlight),
-    2px 2px 0 var(--project-heading-text),
-    4px 4px 0 var(--project-card-inner),
-    7px 7px 0 var(--project-social-shadow);
-  transform: scaleX(1.08);
-  transform-origin: center;
-  white-space: nowrap;
-}
-
-.home-page__subtitle {
-  display: grid;
-  margin-top: var(--space-2);
-  gap: var(--space-1);
-}
-
-.home-page__subtitle p {
-  max-width: none;
-  margin: 0;
-  color: var(--project-body-text);
-  font-family: var(--font-project-ui);
-  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.3;
-  text-shadow: 1px 1px 0 var(--project-social-bg);
+  aspect-ratio: 2172 / 724;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 .home-page__navigation {
   display: grid;
   width: min(100%, 26rem);
-  margin-top: clamp(var(--space-5), 4svh, var(--space-7));
+  margin-top: clamp(var(--space-4), 3svh, var(--space-6));
   gap: var(--space-2);
 }
 
@@ -106,10 +83,10 @@
 .home-page .home-page__primary-button,
 .home-page__navigation .social-links--compact .pixel-button {
   border-color: var(--project-social-border);
-  background: var(--project-social-bg);
+  background: var(--home-control-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-button-highlight),
+    inset 0 4px 0 var(--home-control-highlight),
     4px 4px 0 var(--project-social-shadow);
   color: var(--project-social-text);
   font-family: var(--font-project-ui);
@@ -120,10 +97,10 @@
 .home-page .home-page__primary-button:hover,
 .home-page__navigation .social-links--compact .pixel-button:hover {
   border-color: var(--project-button-hover-border);
-  background: var(--project-tag-bg);
+  background: var(--home-control-hover-bg);
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 4px 0 var(--project-button-highlight),
+    inset 0 4px 0 var(--home-control-highlight),
     5px 5px 0 var(--project-social-shadow);
 }
 
@@ -131,7 +108,7 @@
 .home-page__navigation .social-links--compact .pixel-button:active {
   box-shadow:
     inset 0 0 0 2px var(--project-card-inner),
-    inset 0 2px 0 var(--project-button-highlight),
+    inset 0 2px 0 var(--home-control-highlight),
     2px 2px 0 var(--project-social-shadow);
 }
 
@@ -149,13 +126,13 @@
 }
 
 .home-page__primary-button::before {
-  content: '✦';
+  content: none;
   left: var(--space-4);
   font-size: 0.9rem;
 }
 
 .home-page__primary-button::after {
-  content: '›';
+  content: none;
   right: var(--space-4);
   font-size: 1.5rem;
 }
@@ -206,7 +183,7 @@
 
   .home-page__title {
     width: 100%;
-    padding-inline: var(--space-3);
+    max-width: 100%;
   }
 
   .home-page__navigation {

@@ -15,6 +15,7 @@
   --color-lavender: #c9b8dd;
   --color-green: #647f5f;
   --color-white: #fffdf9;
+  --page-panel-bg: rgba(255, 247, 235, 0.34);
   --color-focus: #28799e;
 
   /* Select Project palette */
@@ -24,9 +25,11 @@
   --project-card-border: #d78d95;
   --project-card-inner: #f2bdc1;
   --project-card-shadow: #bf7b80;
+  --project-card-bg: var(--page-panel-bg);
+  --project-heading-bg: rgba(255, 240, 223, 0.94);
   --project-card-selected-border: #b8566d;
-  --project-card-hover-bg: rgba(255, 224, 218, 0.2);
-  --project-card-selected-bg: rgba(255, 226, 224, 0.28);
+  --project-card-hover-bg: rgba(255, 247, 235, 0.42);
+  --project-card-selected-bg: rgba(255, 238, 232, 0.5);
   --project-tag-bg: #ffe8de;
   --project-tag-border: #dc9095;
   --project-tag-text: #994256;

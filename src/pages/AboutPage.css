@@ -297,3 +297,301 @@
     font-size: var(--font-size-body);
   }
 }
+
+/* Reference-matched About page composition. */
+.about-page {
+  background-image: url('/images/backgrounds/a-project-desktop.png');
+}
+
+.about-page__layout {
+  width: min(100%, 94rem);
+  padding:
+    max(clamp(var(--space-4), 3vh, var(--space-6)), env(safe-area-inset-top))
+    var(--page-gutter)
+    max(clamp(var(--space-7), 8vh, 6rem), env(safe-area-inset-bottom));
+}
+
+.about-page__header {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: clamp(7.5rem, 15vh, 9.5rem);
+  place-items: start center;
+}
+
+.about-page .back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+}
+
+.about-page .page-heading {
+  position: relative;
+  width: min-content;
+  max-width: none;
+  margin: clamp(var(--space-4), 5vh, var(--space-7)) 0 0;
+  padding-inline: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.about-page .page-heading::before,
+.about-page .page-heading::after {
+  position: absolute;
+  top: 50%;
+  color: var(--color-pink-dark);
+  content: '✿';
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--project-button-highlight);
+  transform: translateY(-50%);
+}
+
+.about-page .page-heading::before {
+  left: 0;
+}
+
+.about-page .page-heading::after {
+  right: 0;
+}
+
+.about-page .page-heading__title {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--project-button-highlight);
+  white-space: nowrap;
+}
+
+.about-page .about-page__content {
+  display: block;
+  width: min(100%, 82rem);
+  margin-inline: auto;
+  padding: clamp(var(--space-5), 3vw, var(--space-7));
+  border: 2px solid var(--color-pink);
+  border-radius: 0.75rem;
+  background: var(--page-panel-bg);
+  box-shadow: 4px 4px 0 rgba(191, 123, 128, 0.55);
+}
+
+.about-page__introduction-row {
+  display: grid;
+  grid-template-columns: minmax(18rem, 25rem) minmax(0, 1fr);
+  gap: clamp(var(--space-5), 4vw, 3.5rem);
+  align-items: center;
+  padding: var(--space-2) var(--space-4) var(--space-6);
+}
+
+.about-page__art-placeholder {
+  display: grid;
+  width: 100%;
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+  place-content: center;
+  gap: var(--space-2);
+  border: 3px solid var(--project-tag-border);
+  border-radius: 0.75rem;
+  background: rgba(255, 240, 223, 0.48);
+  box-shadow: inset 0 0 0 3px var(--project-button-highlight);
+}
+
+.about-page__copy {
+  max-width: none;
+  gap: var(--space-4);
+}
+
+.about-page__greeting {
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.8rem, 3.3vw, 2.4rem);
+}
+
+.about-page__greeting span {
+  color: var(--project-status-text);
+}
+
+.about-page__introduction {
+  max-width: 42rem;
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.about-page__interests h2 {
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  text-transform: uppercase;
+}
+
+.about-page__interests ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.about-page__interests .technology-tag {
+  display: grid;
+  width: 100%;
+  min-height: 3rem;
+  place-items: center;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  text-transform: none;
+}
+
+.about-page__details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  border-top: 2px solid var(--color-pink);
+}
+
+.about-page__detail-card {
+  min-width: 0;
+  min-height: 13.5rem;
+  padding: clamp(var(--space-4), 2vw, var(--space-5));
+  border: 2px solid var(--color-pink);
+  border-radius: 0.75rem;
+  background: var(--page-panel-bg);
+}
+
+.about-page__detail-card h2 {
+  margin: 0 0 var(--space-3);
+  color: var(--project-heading-text);
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.about-page__detail-card h2 span {
+  color: var(--project-status-text);
+}
+
+.about-page__detail-card p,
+.about-page__detail-card li {
+  color: var(--project-body-text);
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.35vw, 1.05rem);
+  line-height: 1.5;
+}
+
+.about-page__detail-card p {
+  margin: 0 0 var(--space-1);
+}
+
+.about-page__detail-card ul {
+  display: grid;
+  margin: 0;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.about-page__detail-card li::before {
+  margin-right: var(--space-2);
+  color: var(--project-status-text);
+  content: '♥';
+}
+
+.about-page__contact {
+  padding-top: var(--space-5);
+  border: 0;
+}
+
+.about-page__contact .social-links {
+  width: min(100%, 49rem);
+  gap: var(--space-4);
+}
+
+.about-page__contact .pixel-button {
+  display: flex;
+  min-height: 3.75rem;
+  gap: var(--space-3);
+  justify-content: center;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+}
+
+.about-page__contact .social-links__icon {
+  width: 1.65rem;
+  height: 1.65rem;
+  flex: 0 0 auto;
+  stroke-width: 1.8;
+}
+
+@media (min-width: 48rem) {
+  .about-page {
+    background-image: url('/images/backgrounds/a-project-desktop.png');
+  }
+
+  .about-page .about-page__content {
+    display: block;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .about-page__layout {
+    padding:
+      max(var(--space-3), env(safe-area-inset-top))
+      var(--space-3)
+      max(var(--space-7), env(safe-area-inset-bottom));
+  }
+
+  .about-page__header {
+    min-height: auto;
+    place-items: start;
+    gap: var(--space-5);
+    margin-bottom: var(--space-5);
+  }
+
+  .about-page .back-button {
+    position: static;
+  }
+
+  .about-page .page-heading {
+    justify-self: center;
+    margin: 0;
+  }
+
+  .about-page__introduction-row,
+  .about-page__details {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page__introduction-row {
+    padding-inline: 0;
+  }
+
+  .about-page__art-placeholder {
+    width: min(100%, 28rem);
+    margin-inline: auto;
+  }
+
+  .about-page__detail-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 34rem) {
+  .about-page .page-heading {
+    padding-inline: 2.75rem;
+  }
+
+  .about-page .page-heading__title {
+    font-size: clamp(1.7rem, 9vw, 2.4rem);
+  }
+
+  .about-page .about-page__content {
+    padding: var(--space-4);
+  }
+
+  .about-page__interests ul {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .about-page__contact .social-links {
+    grid-template-columns: 1fr;
+  }
+}

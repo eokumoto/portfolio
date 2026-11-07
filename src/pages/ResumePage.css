@@ -1,0 +1,465 @@
+.resume-page {
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+  background-color: var(--color-cream);
+  background-image: url('/images/backgrounds/a-project-desktop.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--project-body-text);
+}
+
+.resume-page__layout {
+  width: min(100%, 94rem);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding:
+    max(clamp(var(--space-4), 3vh, var(--space-6)), env(safe-area-inset-top))
+    var(--page-gutter)
+    max(clamp(var(--space-7), 10vh, 7rem), env(safe-area-inset-bottom));
+}
+
+.resume-page__header {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: clamp(7.5rem, 15vh, 9.5rem);
+  place-items: start center;
+}
+
+.resume-page .back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  margin: 0;
+  border-color: var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    4px 4px 0 var(--project-social-shadow);
+  color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.resume-page .back-button:hover {
+  border-color: var(--project-button-hover-border);
+  background: var(--project-tag-bg);
+}
+
+.resume-page .back-button:focus-visible {
+  outline-color: var(--project-focus);
+}
+
+.resume-page .page-heading {
+  position: relative;
+  width: min-content;
+  max-width: none;
+  margin: clamp(var(--space-4), 5vh, var(--space-7)) 0 0;
+  padding-inline: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.resume-page .page-heading::before,
+.resume-page .page-heading::after {
+  position: absolute;
+  top: 50%;
+  color: var(--color-pink-dark);
+  content: '✿';
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--project-button-highlight);
+  transform: translateY(-50%);
+}
+
+.resume-page .page-heading::before {
+  left: 0;
+}
+
+.resume-page .page-heading::after {
+  right: 0;
+}
+
+.resume-page .page-heading__title {
+  color: var(--project-heading-text);
+  font-family: var(--font-project-heading);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--project-button-highlight);
+  white-space: nowrap;
+}
+
+.resume-page__dashboard {
+  display: grid;
+  width: min(100%, 82rem);
+  margin-inline: auto;
+  grid-template-columns: minmax(20rem, 24.5rem) minmax(0, 1fr);
+  gap: clamp(var(--space-4), 2vw, var(--space-5));
+  align-items: start;
+}
+
+.resume-page__column {
+  display: grid;
+  min-width: 0;
+  gap: clamp(var(--space-4), 2vw, var(--space-5));
+}
+
+.resume-page .resume-page__panel {
+  min-width: 0;
+  padding: clamp(var(--space-4), 2vw, var(--space-5));
+  border: 2px solid var(--color-pink);
+  border-radius: 0.75rem;
+  background: var(--page-panel-bg);
+  box-shadow: 0 3px 0 rgba(191, 123, 128, 0.55);
+  color: var(--project-body-text);
+}
+
+.resume-page__panel h2 {
+  margin: 0 0 var(--space-4);
+  color: var(--project-heading-text);
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.resume-page__education {
+  display: flex;
+  min-height: 27rem;
+  flex-direction: column;
+}
+
+.resume-page__education-copy {
+  display: grid;
+  gap: var(--space-1);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.5;
+}
+
+.resume-page__education-copy strong {
+  color: var(--project-heading-text);
+}
+
+.resume-page__art-placeholder {
+  display: grid;
+  min-height: 12rem;
+  margin-top: auto;
+  place-content: end center;
+  padding-top: var(--space-6);
+  color: var(--project-tag-text);
+  font-family: var(--font-project-ui);
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.resume-page__art-placeholder strong {
+  font-weight: 400;
+}
+
+.resume-page__links {
+  min-height: 14.5rem;
+}
+
+.resume-page__link-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.resume-page__link-button.pixel-button {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  justify-items: start;
+  border-color: var(--project-social-border);
+  background: var(--project-social-bg);
+  box-shadow:
+    inset 0 0 0 2px var(--project-card-inner),
+    inset 0 4px 0 var(--project-button-highlight),
+    4px 4px 0 var(--project-social-shadow);
+  color: var(--project-social-text);
+  font-family: var(--font-project-ui);
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.resume-page__button-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  stroke-width: 1.8;
+}
+
+.resume-page__external-mark {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.resume-page__skills {
+  display: grid;
+  min-height: 18.75rem;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--space-5);
+}
+
+.resume-page__skill-group {
+  min-width: 0;
+}
+
+.resume-page__skill-group--tools {
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--color-pink);
+}
+
+.resume-page__language-list,
+.resume-page__tag-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resume-page__language-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-5);
+  color: var(--project-body-text);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.45vw, 1.15rem);
+  font-weight: 600;
+}
+
+.resume-page__language-list li::before {
+  margin-right: var(--space-2);
+  color: var(--color-pink-dark);
+  content: '◆';
+  font-size: 0.65em;
+}
+
+.resume-page__tag-list {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.resume-page .technology-tag {
+  min-height: 2rem;
+  padding: var(--space-1) var(--space-3);
+  border-color: var(--project-tag-border);
+  background: var(--project-tag-bg);
+  box-shadow: none;
+  color: var(--project-tag-text);
+  font-family: var(--font-project-ui);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.resume-page__projects {
+  min-height: 22.75rem;
+}
+
+.resume-page__project-list {
+  display: grid;
+}
+
+.resume-page__project {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: clamp(8rem, 15vw, 11.25rem) minmax(0, 1fr) auto;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-4);
+}
+
+.resume-page__project:first-child {
+  padding-top: 0;
+}
+
+.resume-page__project + .resume-page__project {
+  border-top: 2px solid rgba(233, 155, 178, 0.65);
+}
+
+.resume-page__thumbnail {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  place-content: center;
+  border: 2px solid var(--project-tag-border);
+  border-radius: 0.35rem;
+  background: rgba(255, 240, 223, 0.55);
+  color: var(--project-tag-text);
+  font-family: var(--font-project-ui);
+  font-size: 0.9rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.resume-page__thumbnail strong {
+  font-weight: 400;
+}
+
+.resume-page__project-copy {
+  min-width: 0;
+}
+
+.resume-page__project h3 {
+  margin: 0 0 var(--space-1);
+  color: var(--project-heading-text);
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.resume-page__project p {
+  margin: 0 0 var(--space-2);
+  color: var(--project-body-text);
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.4;
+}
+
+.resume-page__project .technology-tag {
+  min-height: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.resume-page__project-link.pixel-button {
+  min-width: var(--control-min-size);
+  padding-inline: var(--space-2);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--project-status-text);
+  font-family: var(--font-project-ui);
+  font-size: 2.25rem;
+}
+
+.resume-page__project-link.pixel-button:hover {
+  background: rgba(255, 212, 213, 0.35);
+  box-shadow: none;
+  transform: translateX(2px);
+}
+
+.resume-page__project-link.pixel-button:focus-visible {
+  outline-color: var(--project-focus);
+}
+
+@media (max-width: 60rem) {
+  .resume-page__dashboard {
+    grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
+  }
+
+  .resume-page__skills {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-page__skill-group--tools {
+    padding-top: var(--space-4);
+    padding-left: 0;
+    border-top: 2px solid var(--color-pink);
+    border-left: 0;
+  }
+
+  .resume-page__project {
+    grid-template-columns: 7rem minmax(0, 1fr) auto;
+    gap: var(--space-3);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .resume-page__layout {
+    padding:
+      max(var(--space-3), env(safe-area-inset-top))
+      var(--space-3)
+      max(var(--space-7), env(safe-area-inset-bottom));
+  }
+
+  .resume-page__header {
+    min-height: auto;
+    place-items: start;
+    gap: var(--space-5);
+    margin-bottom: var(--space-5);
+  }
+
+  .resume-page .back-button {
+    position: static;
+  }
+
+  .resume-page .page-heading {
+    justify-self: center;
+    margin: 0;
+  }
+
+  .resume-page__dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-page__column--main {
+    grid-row: 1;
+  }
+
+  .resume-page__education,
+  .resume-page__links,
+  .resume-page__skills,
+  .resume-page__projects {
+    min-height: 0;
+  }
+
+  .resume-page__art-placeholder {
+    min-height: 7rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .resume-page .page-heading {
+    padding-inline: 2.75rem;
+  }
+
+  .resume-page .page-heading__title {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+  }
+
+  .resume-page__project {
+    grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+    gap: var(--space-2);
+  }
+
+  .resume-page__project p {
+    font-size: 0.95rem;
+  }
+
+  .resume-page__project .technology-tag {
+    padding-inline: var(--space-2);
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 24rem) {
+  .resume-page__project {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .resume-page__project-link.pixel-button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
