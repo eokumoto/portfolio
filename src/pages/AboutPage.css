@@ -3,7 +3,7 @@
   min-height: 100svh;
   overflow-x: hidden;
   background-color: var(--color-cream);
-  background-image: url('/images/backgrounds/about-mobile.png');
+  background-image: url('/images/backgrounds/other.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -252,7 +252,7 @@
 
 @media (min-width: 48rem) {
   .about-page {
-    background-image: url('/images/backgrounds/about-desktop.png');
+    background-image: url('/images/backgrounds/other.png');
   }
 
   .about-page__content {
@@ -300,7 +300,7 @@
 
 /* Reference-matched About page composition. */
 .about-page {
-  background-image: url('/images/backgrounds/a-project-desktop.png');
+  background-image: url('/images/backgrounds/other.png');
 }
 
 .about-page__layout {
@@ -522,7 +522,7 @@
 
 @media (min-width: 48rem) {
   .about-page {
-    background-image: url('/images/backgrounds/a-project-desktop.png');
+    background-image: url('/images/backgrounds/other.png');
   }
 
   .about-page .about-page__content {

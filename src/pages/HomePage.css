@@ -5,7 +5,7 @@
   min-height: 100svh;
   overflow-x: hidden;
   background-color: var(--color-sky);
-  background-image: url('/images/backgrounds/home-mobile.png');
+  background-image: url('/images/backgrounds/home.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -168,7 +168,7 @@
 
 @media (min-width: 48rem) {
   .home-page {
-    background-image: url('/images/backgrounds/home-desktop.png');
+    background-image: url('/images/backgrounds/home.png');
   }
 
   .home-page__navigation {

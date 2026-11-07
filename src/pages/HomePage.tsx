@@ -12,7 +12,7 @@ export function HomePage() {
               alt="Emi Okumoto — Software Engineering Student — Build, Code, Create!"
               className="home-page__logo"
               height="724"
-              src="/images/Title.png"
+              src="/images/emi-logo.png"
               width="2172"
             />
           </header>
