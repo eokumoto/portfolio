@@ -62,46 +62,28 @@ export function ProjectDetailPage() {
                 projectTitle={project.title}
               />
 
-              <PixelPanel className="project-detail-page__panel project-detail-page__panel--info">
-                <div className="project-detail-page__info">
-                  <h2>Project Info</h2>
-                  <p className="project-detail-page__info-line">
-                    {[
-                      project.date,
-                      project.status === 'in-progress' ? 'In progress' : null,
-                      project.teamSize
-                        ? `Team of ${project.teamSize}`
-                        : project.role
-                          ? 'Team project'
-                          : 'Solo project',
-                    ]
-                      .filter(Boolean)
-                      .join(' · ')}
-                  </p>
+              {(project.githubUrl || project.demoUrl) && (
+                <div className="project-detail-page__actions project-detail-page__links">
+                  {project.githubUrl && (
+                    <PixelButton
+                      href={project.githubUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      GITHUB
+                    </PixelButton>
+                  )}
+                  {project.demoUrl && (
+                    <PixelButton
+                      href={project.demoUrl}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      DEMO
+                    </PixelButton>
+                  )}
                 </div>
-                {(project.githubUrl || project.demoUrl) && (
-                  <div className="project-detail-page__actions">
-                    {project.githubUrl && (
-                      <PixelButton
-                        href={project.githubUrl}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        GITHUB
-                      </PixelButton>
-                    )}
-                    {project.demoUrl && (
-                      <PixelButton
-                        href={project.demoUrl}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        DEMO
-                      </PixelButton>
-                    )}
-                  </div>
-                )}
-              </PixelPanel>
+              )}
             </div>
 
             <div className="project-detail-page__summary">

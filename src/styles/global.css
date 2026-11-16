@@ -8,7 +8,12 @@ html {
   min-width: 20rem;
   min-height: 100%;
   color: var(--color-plum);
-  background: var(--color-sky-light);
+  /* Phone browsers tint their bars from this solid color (they ignore
+     gradients and images), so it matches the purple sky at the top of the
+     background art. The art itself also sits here, so it shows behind the
+     bars and when scrolling past the page edges. */
+  background: #a775cc url('/images/backgrounds/other.png') center / cover
+    no-repeat;
   font-family: var(--font-body);
   font-size: 100%;
   line-height: 1.65;
