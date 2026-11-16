@@ -79,6 +79,7 @@ export const projects: Project[] = [
     shortDescription:
       'Helps dyslexic readers by turning any flyer, menu or handout into easy-to-read text, just by snapping a photo.',
     date: 'Nov 13 – 15, 2026',
+    thumbnail: '/images/projects/sid/thumbnail.png',
     technologies: [
       'Next.js',
       'TypeScript',
