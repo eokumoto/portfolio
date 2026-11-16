@@ -257,7 +257,6 @@ export const projects: Project[] = [
     date: 'Sep – Oct 2026',
     technologies: ['Next.js', 'TypeScript', 'MongoDB', 'Supabase', 'Vercel'],
     githubUrl: 'https://github.com/jaydonkc/h4i-calpoly-team7',
-    demoUrl: 'https://h4i-calpoly-team7.vercel.app/',
     overview: [
       'FitnessMaxxing is a gym website with a playful identity. Members can sign up, book classes and pick a membership. Checkout is simulated and never charges money.',
       'Built with Team 7 for the Hack4Impact Cal Poly bootcamp.',
