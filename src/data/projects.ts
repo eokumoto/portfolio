@@ -202,6 +202,7 @@ export const projects: Project[] = [
     date: 'May 2026',
     technologies: ['HTML', 'JavaScript', 'CSS'],
     githubUrl: 'https://github.com/eokumoto/FoodFriends',
+    demoUrl: 'https://youtube.com/shorts/75-awUHHbAw',
     overview: [
       'Food Friends keeps track of what is in your fridge, freezer and pantry so food gets eaten before it goes bad.',
       'Built at KiroHacks using Kiro, an AI-powered code editor, to help plan and build it.',
