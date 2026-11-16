@@ -196,6 +196,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'food-friends',
+    teamSize: 2,
     title: 'Food Friends',
     shortDescription: "An app for keeping track of what's in your fridge.",
     date: 'May 2026',
@@ -205,6 +206,7 @@ export const projects: Project[] = [
       'Food Friends keeps track of what is in your fridge, freezer and pantry so food gets eaten before it goes bad.',
       'Built at KiroHacks using Kiro, an AI-powered code editor, to help plan and build it.',
     ],
+    role: ['Coded the whole app, building from the UI my teammate designed'],
     features: [
       'Inventory for fridge, freezer and pantry, with estimated expiry dates for common foods',
       'An "Expiring soon" list with color-coded urgency',
