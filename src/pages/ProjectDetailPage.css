@@ -1,6 +1,6 @@
 .project-detail-page {
   width: 100%;
-  min-height: 100svh;
+  min-height: 100lvh;
   overflow-x: hidden;
   background-color: var(--color-sky);
   background-image: url('/images/backgrounds/other.png');

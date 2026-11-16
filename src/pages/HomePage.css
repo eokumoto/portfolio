@@ -4,7 +4,7 @@
   --home-control-hover-bg: var(--color-pink-light);
   --home-control-highlight: var(--project-social-bg);
   --home-control-shadow: var(--button-shadow);
-  min-height: 100svh;
+  min-height: 100lvh;
   overflow-x: hidden;
   background-color: #a775cc;
   background-image: url('/images/backgrounds/home.png');
