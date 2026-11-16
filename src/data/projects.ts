@@ -172,6 +172,7 @@ export const projects: Project[] = [
     title: 'Easy Web',
     shortDescription: 'A browser that helps people browse confidently.',
     date: 'Jul 2026',
+    thumbnail: '/images/projects/easy-web/thumbnail.png',
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     githubUrl: 'https://github.com/eokumoto/easyWeb',
     demoUrl: 'https://abouteasyweb.vercel.app/',
@@ -200,6 +201,29 @@ export const projects: Project[] = [
     title: 'Food Friends',
     shortDescription: "An app for keeping track of what's in your fridge.",
     date: 'May 2026',
+    thumbnail: '/images/projects/food-friends/thumbnail.png',
+    gallery: [
+      {
+        src: '/images/projects/food-friends/inventory.jpg',
+        alt: 'Food Friends inventory screens: all items with days left, the fridge filter and the Add Item form',
+      },
+      {
+        src: '/images/projects/food-friends/item-details.jpg',
+        alt: 'Food Friends item details with notes, recipe ideas, storage tips and the Edit Item form',
+      },
+      {
+        src: '/images/projects/food-friends/grocery-list.jpg',
+        alt: 'The Food Friends grocery list, moving a checked item into the fridge and editing it',
+      },
+      {
+        src: '/images/projects/food-friends/settings.jpg',
+        alt: 'Food Friends settings, dietary and allergy preferences, and recipes flagged with allergy warnings',
+      },
+      {
+        src: '/images/projects/food-friends/notifications-about.jpg',
+        alt: 'Food Friends expiration notification settings and the About page on food expiration dates',
+      },
+    ],
     technologies: ['HTML', 'JavaScript', 'CSS'],
     githubUrl: 'https://github.com/eokumoto/FoodFriends',
     demoUrl: 'https://youtube.com/shorts/75-awUHHbAw',

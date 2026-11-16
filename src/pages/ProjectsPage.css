@@ -658,7 +658,8 @@
       auto;
     min-height: 8.5rem;
     gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
+    /* Extra room on the left for the selected ▶ arrow. */
+    padding: var(--space-3) var(--space-4) var(--space-3) 2.25rem;
     border-radius: 1.25rem;
   }
 
