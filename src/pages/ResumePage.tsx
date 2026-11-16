@@ -3,14 +3,10 @@ import { PageHeading } from '../components/PageHeading/PageHeading'
 import { PixelButton } from '../components/PixelButton/PixelButton'
 import { PixelPanel } from '../components/PixelPanel/PixelPanel'
 import { TechnologyTag } from '../components/TechnologyTag/TechnologyTag'
-import { projects } from '../data/projects'
-import { resumeContent } from '../data/resume'
+import { Link } from 'react-router-dom'
+import { resumeContent, type ResumeExperience } from '../data/resume'
+import campusArt from '../assets/resume-campus.png'
 import './ResumePage.css'
-
-const highlightedSlugs = new Set<string>(resumeContent.highlightedProjectSlugs)
-const highlightedProjects = projects.filter((project) =>
-  highlightedSlugs.has(project.slug),
-)
 
 function GitHubIcon() {
   return (
@@ -46,6 +42,56 @@ function DocumentIcon() {
   )
 }
 
+/** Turns project names in an experience bullet into links to their pages. */
+function renderDetail(
+  detail: string,
+  projectLinks: ResumeExperience['projectLinks'],
+) {
+  const link = projectLinks?.find(({ text }) => detail.includes(text))
+  if (!link) return detail
+  const [before, ...rest] = detail.split(link.text)
+  return (
+    <>
+      {before}
+      <Link className="resume-page__project-link" to={`/projects/${link.slug}`}>
+        {link.text}
+      </Link>
+      {rest.join(link.text)}
+    </>
+  )
+}
+
+function ExperienceDetails({ item }: { item: ResumeExperience }) {
+  if (!item.details || item.details.length === 0) return null
+  return (
+    <ul>
+      {item.details.map((detail) => (
+        <li key={detail}>{renderDetail(detail, item.projectLinks)}</li>
+      ))}
+    </ul>
+  )
+}
+
+/** Groups back-to-back roles at the same organization, newest first. */
+function groupExperience(items: ResumeExperience[]) {
+  const groups: ResumeExperience[][] = []
+  for (const item of items) {
+    const last = groups.at(-1)
+    if (last && last[0].organization === item.organization) last.push(item)
+    else groups.push([item])
+  }
+  return groups
+}
+
+/** Spans from the oldest role's start to the newest role's end. */
+function getGroupDates(group: ResumeExperience[]) {
+  const overall = group.find((item) => item.organizationDates)
+  if (overall?.organizationDates) return overall.organizationDates
+  const end = group[0].dates.split(' – ').at(-1)
+  const start = group[group.length - 1].dates.split(' – ')[0]
+  return `${start} – ${end}`
+}
+
 export function ResumePage() {
   return (
     <main className="resume-page">
@@ -60,20 +106,23 @@ export function ResumePage() {
             <PixelPanel className="resume-page__panel resume-page__education">
               <h2>Education</h2>
               <div className="resume-page__education-copy">
-                <strong>{resumeContent.education.degree}</strong>
-                <span>{resumeContent.education.university}</span>
-                <span>
-                  Expected graduation:{' '}
-                  {resumeContent.education.expectedGraduation}
+                <span className="resume-page__school">
+                  {resumeContent.education.university}
+                </span>
+                <strong className="resume-page__degree">
+                  {resumeContent.education.degree}
+                </strong>
+                {resumeContent.education.minor && (
+                  <span className="resume-page__minor">
+                    {resumeContent.education.minor}
+                  </span>
+                )}
+                <span className="resume-page__grad-badge">
+                  Expected {resumeContent.education.expectedGraduation}
                 </span>
               </div>
-              <div
-                aria-label={resumeContent.artwork.alt}
-                className="resume-page__art-placeholder"
-                role="img"
-              >
-                <span>{resumeContent.artwork.label}</span>
-                <strong>{resumeContent.artwork.status}</strong>
+              <div aria-hidden="true" className="resume-page__campus-art">
+                <img alt="" src={campusArt} />
               </div>
             </PixelPanel>
 
@@ -136,7 +185,7 @@ export function ResumePage() {
           <div className="resume-page__column resume-page__column--main">
             <PixelPanel className="resume-page__panel resume-page__skills">
               <section className="resume-page__skill-group">
-                <h2>Skills</h2>
+                <h2>Languages</h2>
                 <ul className="resume-page__language-list">
                   {resumeContent.languages.map((language) => (
                     <li key={language}>{language}</li>
@@ -144,54 +193,98 @@ export function ResumePage() {
                 </ul>
               </section>
 
-              <section className="resume-page__skill-group resume-page__skill-group--tools">
-                <h2>Tools &amp; Concepts</h2>
+              <div className="resume-page__skill-group resume-page__skill-group--tools">
+                <section>
+                  <h2>Technologies</h2>
+                  <ul className="resume-page__tag-list">
+                    {resumeContent.technologies.map((item) => (
+                      <li key={item}>
+                        <TechnologyTag>{item}</TechnologyTag>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h2>Tools &amp; Concepts</h2>
+                  <ul className="resume-page__tag-list">
+                    {resumeContent.toolsAndConcepts.map((item) => (
+                      <li key={item}>
+                        <TechnologyTag>{item}</TechnologyTag>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+
+              <section className="resume-page__skill-group resume-page__skill-group--coursework">
+                <h2>Coursework</h2>
                 <ul className="resume-page__tag-list">
-                  {resumeContent.toolsAndConcepts.map((item) => (
-                    <li key={item}>
-                      <TechnologyTag>{item}</TechnologyTag>
+                  {resumeContent.coursework.map((course) => (
+                    <li key={course}>
+                      <TechnologyTag>{course}</TechnologyTag>
                     </li>
                   ))}
                 </ul>
               </section>
             </PixelPanel>
-
-            <PixelPanel className="resume-page__panel resume-page__projects">
-              <h2>Project Highlights</h2>
-              <div className="resume-page__project-list">
-                {highlightedProjects.map((project) => (
-                  <article className="resume-page__project" key={project.slug}>
-                    <div
-                      aria-label={`${project.title} thumbnail placeholder`}
-                      className="resume-page__thumbnail"
-                      role="img"
-                    >
-                      <span>Thumbnail</span>
-                      <strong>TODO</strong>
-                    </div>
-                    <div className="resume-page__project-copy">
-                      <h3>{project.title}</h3>
-                      <p>{project.shortDescription}</p>
-                      <ul className="resume-page__tag-list">
-                        {project.technologies.slice(0, 3).map((technology) => (
-                          <li key={technology}>
-                            <TechnologyTag>{technology}</TechnologyTag>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <PixelButton
-                      aria-label={`Open ${project.title}`}
-                      className="resume-page__project-link"
-                      to={`/projects/${project.slug}`}
-                    >
-                      <span aria-hidden="true">›</span>
-                    </PixelButton>
-                  </article>
-                ))}
-              </div>
-            </PixelPanel>
           </div>
+        </div>
+
+        <div className="resume-page__stack">
+          <PixelPanel className="resume-page__panel resume-page__experience">
+            <h2>Experience</h2>
+            <div className="resume-page__experience-list">
+              {groupExperience(resumeContent.experience).map((group) =>
+                group.length === 1 ? (
+                  <article
+                    className="resume-page__experience-item"
+                    key={`${group[0].organization}-${group[0].role}`}
+                  >
+                    <header>
+                      <div>
+                        <h3>{group[0].role}</h3>
+                        <p className="resume-page__experience-org">
+                          {group[0].organization}
+                        </p>
+                      </div>
+                      <p className="resume-page__experience-dates">
+                        {group[0].dates}
+                      </p>
+                    </header>
+                    <ExperienceDetails item={group[0]} />
+                  </article>
+                ) : (
+                  <article
+                    className="resume-page__experience-item"
+                    key={group[0].organization}
+                  >
+                    <header>
+                      <h3 className="resume-page__experience-org">
+                        {group[0].organization}
+                      </h3>
+                      <p className="resume-page__experience-dates">
+                        {getGroupDates(group)}
+                      </p>
+                    </header>
+                    <ol className="resume-page__positions">
+                      {group.map((item) => (
+                        <li className="resume-page__position" key={item.role}>
+                          <header>
+                            <h4>{item.role}</h4>
+                            <p className="resume-page__experience-dates">
+                              {item.dates}
+                            </p>
+                          </header>
+                          <ExperienceDetails item={item} />
+                        </li>
+                      ))}
+                    </ol>
+                  </article>
+                ),
+              )}
+            </div>
+          </PixelPanel>
         </div>
       </div>
     </main>

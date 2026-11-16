@@ -14,8 +14,10 @@
   width: min(100%, 94rem);
   min-height: 100svh;
   margin-inline: auto;
-  padding:
-    max(clamp(var(--space-4), 3vh, var(--space-6)), env(safe-area-inset-top))
+  padding: max(
+      clamp(var(--space-4), 3vh, var(--space-6)),
+      env(safe-area-inset-top)
+    )
     var(--page-gutter)
     max(clamp(var(--space-7), 10vh, 7rem), env(safe-area-inset-bottom));
 }
@@ -104,7 +106,7 @@
   margin-inline: auto;
   grid-template-columns: minmax(20rem, 24.5rem) minmax(0, 1fr);
   gap: clamp(var(--space-4), 2vw, var(--space-5));
-  align-items: start;
+  align-items: stretch;
 }
 
 .resume-page__column {
@@ -136,20 +138,47 @@
 
 .resume-page__education {
   display: flex;
-  min-height: 27rem;
+  min-height: 0;
   flex-direction: column;
 }
 
 .resume-page__education-copy {
   display: grid;
-  gap: var(--space-1);
+  gap: var(--space-2);
+  justify-items: start;
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.35vw, 1.125rem);
-  line-height: 1.5;
+  line-height: 1.35;
 }
 
-.resume-page__education-copy strong {
+.resume-page__school {
+  color: var(--project-status-text);
+  font-family: var(--font-project-ui);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resume-page__degree {
   color: var(--project-heading-text);
+  font-size: clamp(1.45rem, 2.15vw, 1.9rem);
+  line-height: 1.2;
+}
+
+.resume-page__minor {
+  color: var(--project-body-text);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+}
+
+.resume-page__grad-badge {
+  margin-top: var(--space-1);
+  padding: 0.15rem 0.6rem;
+  border: 2px solid var(--project-tag-border);
+  border-radius: 0.25rem;
+  background: var(--project-tag-bg);
+  box-shadow: inset 0 -2px 0 var(--project-card-inner);
+  color: var(--project-tag-text);
+  font-family: var(--font-project-ui);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
 }
 
 .resume-page__art-placeholder {
@@ -170,12 +199,64 @@
 }
 
 .resume-page__links {
-  min-height: 14.5rem;
+  min-height: 0;
 }
 
 .resume-page__link-list {
   display: grid;
   gap: var(--space-4);
+}
+
+/* Skills stretches to the sidebar's height so both columns end together. */
+.resume-page__column--main {
+  align-content: stretch;
+}
+
+/* Education grows so the sidebar lines up with the Skills panel. */
+.resume-page__column--sidebar {
+  grid-template-rows: 1fr auto;
+}
+
+/* Original pixel scene that sits on the panel's bottom edge and grows so
+   Links lines up with the Skills panel. Its sky is transparent, so it blends
+   into the panel. */
+.resume-page__education {
+  --education-pad: clamp(var(--space-4), 2vw, var(--space-5));
+
+  overflow: hidden;
+}
+
+.resume-page .pixel-panel > .resume-page__campus-art {
+  /* One art pixel. The scene is 40 pixels tall. */
+  --art-px: 0.175rem;
+
+  position: relative;
+  min-height: calc(40 * var(--art-px));
+  flex: 1;
+  margin: var(--space-3) calc(-1 * var(--education-pad))
+    calc(-1 * var(--education-pad));
+  /* Ground and hill bands that carry the scene's edges out to any width. */
+  background: linear-gradient(
+      to top,
+      #86b867 0 calc(4 * var(--art-px)),
+      #9cc97a 0 calc(9 * var(--art-px)),
+      #de9bb3 0 calc(16 * var(--art-px)),
+      #eab3c6 0 calc(20 * var(--art-px)),
+      transparent 0
+    )
+    bottom / 100% 100% no-repeat;
+}
+
+.resume-page__campus-art img {
+  /* Fixed pixel size, centered on the bottom edge, so it never stretches. */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  max-width: none;
+  height: calc(40 * var(--art-px));
+  transform: translateX(-50%);
+  image-rendering: pixelated;
 }
 
 .resume-page__link-button.pixel-button {
@@ -210,10 +291,11 @@
   line-height: 1;
 }
 
+/* Languages across the top, then Technologies and Tools & Concepts side by side. */
 .resume-page__skills {
   display: grid;
   min-height: 18.75rem;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-content: start;
   gap: var(--space-5);
 }
 
@@ -222,8 +304,22 @@
 }
 
 .resume-page__skill-group--tools {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 2px solid var(--color-pink);
+}
+
+.resume-page__skill-group--tools > section + section {
   padding-left: var(--space-5);
   border-left: 2px solid var(--color-pink);
+}
+
+.resume-page__skill-group--coursework {
+  padding-top: var(--space-5);
+  border-top: 2px solid var(--color-pink);
 }
 
 .resume-page__language-list,
@@ -235,7 +331,7 @@
 
 .resume-page__language-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
   gap: var(--space-3) var(--space-5);
   color: var(--project-body-text);
   font-family: var(--font-body);
@@ -368,12 +464,12 @@
     grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
   }
 
-  .resume-page__skills {
+  .resume-page__skill-group--tools {
     grid-template-columns: 1fr;
   }
 
-  .resume-page__skill-group--tools {
-    padding-top: var(--space-4);
+  .resume-page__skill-group--tools > section + section {
+    padding-top: var(--space-5);
     padding-left: 0;
     border-top: 2px solid var(--color-pink);
     border-left: 0;
@@ -387,9 +483,7 @@
 
 @media (max-width: 47.99rem) {
   .resume-page__layout {
-    padding:
-      max(var(--space-3), env(safe-area-inset-top))
-      var(--space-3)
+    padding: max(var(--space-3), env(safe-area-inset-top)) var(--space-3)
       max(var(--space-7), env(safe-area-inset-bottom));
   }
 
@@ -413,8 +507,34 @@
     grid-template-columns: 1fr;
   }
 
+  /* Stacked like a printed resume: Education, Experience, then Skills and
+     Links at the bottom. */
+  .resume-page__layout {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(var(--space-4), 2vw, var(--space-5));
+  }
+
+  .resume-page .resume-page__dashboard,
+  .resume-page .resume-page__column--sidebar,
+  .resume-page .resume-page__stack {
+    display: contents;
+  }
+
+  .resume-page__education {
+    order: 1;
+  }
+
+  .resume-page__experience {
+    order: 2;
+  }
+
   .resume-page__column--main {
-    grid-row: 1;
+    order: 3;
+  }
+
+  .resume-page__links {
+    order: 4;
   }
 
   .resume-page__education,
@@ -462,4 +582,157 @@
     grid-column: 1 / -1;
     width: 100%;
   }
+}
+
+.resume-page__experience-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.resume-page__experience-item + .resume-page__experience-item {
+  padding-top: var(--space-4);
+  border-top: 2px solid var(--color-pink);
+}
+
+.resume-page__experience-item header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-4);
+}
+
+.resume-page__experience-item h3 {
+  margin: 0;
+  color: var(--project-heading-text);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  font-weight: 700;
+}
+
+.resume-page__experience-org {
+  margin: 0;
+  color: var(--project-body-text);
+  font-family: var(--font-body);
+}
+
+.resume-page__experience-dates {
+  margin: 0;
+  color: var(--project-status-text, var(--color-plum-light));
+  font-family: var(--font-project-ui);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resume-page__positions {
+  display: grid;
+  margin: var(--space-2) 0 0;
+  gap: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.resume-page__position {
+  position: relative;
+  max-width: none;
+  padding-left: var(--space-5);
+}
+
+.resume-page__position ul {
+  list-style: disc;
+}
+
+/* A pixel timeline linking the roles held at one organization. */
+.resume-page__position::before {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.2rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  background: var(--project-card-border);
+  box-shadow: 0 0 0 2px var(--project-tag-bg);
+  content: '';
+}
+
+.resume-page__position + .resume-page__position::after,
+.resume-page__position:not(:last-child)::after {
+  position: absolute;
+  top: 1.25rem;
+  bottom: calc(-1 * var(--space-4) + 0.1rem);
+  left: 0.4rem;
+  width: 2px;
+  background: var(--project-divider);
+  content: '';
+}
+
+.resume-page__position:last-child::after {
+  display: none;
+}
+
+.resume-page__position header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-4);
+}
+
+.resume-page__position h4 {
+  margin: 0;
+  color: var(--project-heading-text);
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.25vw, 1.05rem);
+  font-weight: 600;
+}
+
+.resume-page__position .resume-page__experience-dates {
+  font-size: 1rem;
+}
+
+/* A grouped organization leads in bold, like LinkedIn, since its roles sit
+   underneath it. */
+h3.resume-page__experience-org {
+  color: var(--project-heading-text);
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  font-weight: 700;
+}
+
+/* The Experience panel is wide, so bullets use the full row. */
+.resume-page__experience-item li {
+  max-width: none;
+}
+
+.resume-page__experience-item ul {
+  display: grid;
+  margin: var(--space-2) 0 0;
+  gap: var(--space-1);
+  padding-left: var(--space-5);
+  color: var(--project-body-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+.resume-page__stack {
+  display: grid;
+  width: min(100%, 82rem);
+  margin: clamp(var(--space-4), 2vw, var(--space-5)) auto 0;
+  gap: clamp(var(--space-4), 2vw, var(--space-5));
+}
+
+.resume-page__project-link {
+  color: var(--project-status-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.resume-page__project-link:hover {
+  color: var(--project-heading-text);
+}
+
+.resume-page__project-link:focus-visible {
+  outline: 2px solid var(--project-focus);
+  outline-offset: 2px;
 }

@@ -1,6 +1,6 @@
 import { education, siteContent } from './site'
 
-const interests = ['Game development', 'UI/UX design']
+const interests = ['Game development']
 
 export interface AboutDetailSection {
   display: 'lines' | 'list'
