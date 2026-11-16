@@ -7,6 +7,7 @@ export interface SocialLink {
 export interface Education {
   degree: string
   expectedGraduation: string
+  minor?: string
   university: string
 }
 
@@ -29,6 +30,7 @@ export const siteContent = {
 export const education: Education = {
   degree: 'B.S. Software Engineering',
   expectedGraduation: 'May 2028',
+  minor: 'Minor in Mathematics',
   university: 'Cal Poly San Luis Obispo',
 }
 

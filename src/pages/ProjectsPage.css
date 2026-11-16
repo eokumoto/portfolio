@@ -240,9 +240,23 @@
   height: auto;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-color: var(--project-tag-border);
+  border: 2px solid var(--project-card-border);
+  border-radius: 0.25rem;
   background: var(--project-tag-bg);
+  box-shadow: inset 0 0 0 2px var(--project-button-highlight);
   color: var(--project-tag-text);
+}
+
+.projects-page .project-list-item__thumbnail:has(img) {
+  box-shadow: none;
+}
+
+.projects-page .project-list-item__initials {
+  font-family: var(--font-project-heading);
+  font-size: clamp(1.25rem, 0.9rem + 1.2vw, 2rem);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-shadow: 2px 2px 0 var(--project-button-highlight);
 }
 
 .projects-page .project-list-item__thumbnail img {
@@ -252,6 +266,7 @@
   min-width: 0;
   max-width: 100%;
   object-fit: cover;
+  image-rendering: auto;
 }
 
 .projects-page .project-list-item__content {
@@ -272,7 +287,12 @@
 }
 
 .projects-page .project-list-item__status {
-  display: none;
+  margin: 0 0 var(--space-1);
+  color: var(--project-status-text);
+  font-family: var(--font-project-ui);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .projects-page .project-list-item__title {
@@ -506,7 +526,8 @@
       auto;
     gap: clamp(var(--space-2), 2vw, var(--space-3));
     min-height: 7.5rem;
-    padding: var(--space-2);
+    /* Extra room on the left for the selected ▶ arrow. */
+    padding: var(--space-2) var(--space-2) var(--space-2) 1.5rem;
     border-radius: 0.75rem;
     align-items: center;
   }
@@ -552,10 +573,10 @@
   .projects-page .project-list-item[aria-selected='true']::before,
   .projects-page .project-list-item.is-selected::before {
     display: block;
-    left: var(--space-2);
-    top: var(--space-2);
-    transform: none;
-    font-size: 1.75rem;
+    left: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
   }
 
   .projects-page__actions {

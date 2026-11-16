@@ -13,6 +13,18 @@ const statusLabels: Record<ProjectStatus, string> = {
   'coming-soon': 'Coming Soon',
 }
 
+/** "SID: Simplified..." becomes "SID", "PolyProblems" or "Study Sync" becomes "PP" or "SS". */
+function getInitials(title: string) {
+  if (title.includes(':')) return title.split(':')[0].slice(0, 3).toUpperCase()
+
+  return title
+    .split(/\s+|(?<=[a-z])(?=[A-Z])/)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
+}
+
 export function ProjectListItem({
   onSelect,
   project,
@@ -30,14 +42,18 @@ export function ProjectListItem({
         {project.thumbnail ? (
           <img alt="" src={project.thumbnail} />
         ) : (
-          <span>Thumbnail TODO</span>
+          <span aria-hidden="true" className="project-list-item__initials">
+            {getInitials(project.title)}
+          </span>
         )}
       </div>
 
       <div className="project-list-item__content">
         <p className="project-list-item__status">
-          {project.status ? (
-            statusLabels[project.status]
+          {project.status || project.date ? (
+            [project.status && statusLabels[project.status], project.date]
+              .filter(Boolean)
+              .join(' · ')
           ) : (
             <span aria-hidden="true">&nbsp;</span>
           )}
@@ -48,7 +64,7 @@ export function ProjectListItem({
         </p>
         <ul
           className="technology-list"
-          aria-label={`${project.title} technologies`}
+          aria-label={`${project.title} tech stack`}
         >
           {project.technologies.map((technology) => (
             <li key={technology}>

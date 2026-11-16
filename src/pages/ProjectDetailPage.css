@@ -151,8 +151,6 @@
 .project-detail-page .image-carousel__slide img {
   display: block;
   object-fit: contain;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 .project-detail-page .image-carousel__placeholder {
@@ -321,7 +319,7 @@
 
 .project-detail-page__panel--closing {
   display: grid;
-  width: min(100%, 72.5rem);
+  width: 100%;
   min-height: 12.75rem;
   margin-inline: auto;
   gap: var(--space-5);
@@ -330,6 +328,68 @@
 
 .project-detail-page__learned {
   min-width: 0;
+}
+
+.project-detail-page__media {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.project-detail-page__panel--info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.project-detail-page__info {
+  min-width: 0;
+}
+
+.project-detail-page__info h2 {
+  margin-bottom: var(--space-1);
+}
+
+.project-detail-page__info-line {
+  margin: 0;
+  color: var(--project-status-text, var(--color-plum-light));
+  font-family: var(--font-project-ui);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-detail-page__panel--info .project-detail-page__actions {
+  width: auto;
+  flex: 1 1 18rem;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.project-detail-page__panel--info .project-detail-page__actions .pixel-button {
+  flex: 0 1 11rem;
+}
+
+/* Same width as the showcase above, so the panel edges line up. */
+.project-detail-page__details {
+  display: grid;
+  width: 100%;
+  margin-inline: auto;
+  gap: clamp(var(--space-4), 2.5vw, var(--space-6));
+}
+
+.project-detail-page__details-side {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: clamp(var(--space-4), 2.5vw, var(--space-6));
+}
+
+.project-detail-page__details-side > .project-detail-page__panel {
+  flex: 1 1 auto;
 }
 
 .project-detail-page__panel h2,
@@ -354,6 +414,30 @@
 
 .project-detail-page .technology-list {
   min-width: 0;
+  margin: 0;
+}
+
+.project-detail-page__stack {
+  display: grid;
+  margin: 0;
+  gap: var(--space-3);
+}
+
+.project-detail-page__stack-group {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.project-detail-page__stack-group dt {
+  color: var(--project-status-text, var(--color-plum-light));
+  font-family: var(--font-project-ui);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.project-detail-page__stack-group dd {
   margin: 0;
 }
 
@@ -399,27 +483,35 @@
     gap: clamp(var(--space-5), 2.5vw, 2.25rem);
   }
 
-  .project-detail-page__showcase .image-carousel {
+  .project-detail-page__media {
     grid-column: 2;
     grid-row: 1;
-    align-self: center;
+  }
+
+  /* The info panel grows to fill whatever height the left column adds. */
+  .project-detail-page__panel--info {
+    flex: 1;
+  }
+
+  /* A fixed 16:10 frame, so every screenshot sits in the same size box
+     no matter how long the text beside it is. */
+  .project-detail-page__showcase .image-carousel__slide img,
+  .project-detail-page__showcase .image-carousel__placeholder {
+    aspect-ratio: 16 / 10;
   }
 
   .project-detail-page__summary {
     grid-column: 1;
     grid-row: 1;
-    grid-template-rows: minmax(0, 1.25fr) minmax(0, 0.85fr);
+    grid-template-rows: minmax(0, 1fr) auto;
     align-self: stretch;
   }
 
-  .project-detail-page__panel--closing {
-    grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  .project-detail-page__details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .project-detail-page__panel--closing .project-detail-page__actions {
-    padding-left: var(--space-5);
-    border-left: var(--border-thin) solid var(--color-pink);
-  }
+
 }
 
 @media (max-width: 37.5rem) {
@@ -471,5 +563,42 @@
   .project-detail-page .image-carousel__control:hover,
   .project-detail-page .image-carousel__control:active {
     transition: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .project-detail-page__panel--closing .project-detail-page__actions .pixel-button {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+/* Panels are already sized for reading, so bullets use the full width. */
+.project-detail-page__panel li {
+  max-width: none;
+}
+
+/* Stacked on small screens: overview first, then screenshots, project info
+   and tech stack. */
+@media (max-width: 47.99rem) {
+  .project-detail-page__media,
+  .project-detail-page__summary {
+    display: contents;
+  }
+
+  .project-detail-page__panel--overview {
+    order: 1;
+  }
+
+  .project-detail-page__media > :first-child {
+    order: 2;
+  }
+
+  .project-detail-page__panel--info {
+    order: 3;
+  }
+
+  .project-detail-page__panel--technologies {
+    order: 4;
   }
 }
