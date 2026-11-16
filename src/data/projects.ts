@@ -38,6 +38,7 @@ export const projects: Project[] = [
     shortDescription:
       'A mobile app for reporting problems on campus. Made with CodeBox.',
     date: 'Oct 2025 – Jun 2026',
+    thumbnail: '/images/projects/poly-problems/thumbnail.png',
     technologies: [
       'TypeScript',
       'React Native',
