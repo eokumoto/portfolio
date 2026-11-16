@@ -488,9 +488,13 @@
     grid-row: 1;
   }
 
-  /* The info panel grows to fill whatever height the left column adds. */
+  /* The info panel grows to fill whatever height the left column adds.
+     Its text and buttons stay together in the middle instead of spreading
+     to the top and bottom edges. */
   .project-detail-page__panel--info {
     flex: 1;
+    align-content: center;
+    row-gap: var(--space-3);
   }
 
   /* A fixed 16:10 frame, so every screenshot sits in the same size box
