@@ -631,3 +631,86 @@
     justify-self: center;
   }
 }
+
+/* Desktop: a more compact list so about two and a half projects fit on screen. */
+@media (min-width: 48rem) {
+  .projects-page .page-header {
+    min-height: clamp(7rem, 14svh, 8rem);
+  }
+
+  .projects-page .page-heading__title {
+    font-size: clamp(1.75rem, 3.4vw, 2.6rem);
+  }
+
+  .projects-page .page-heading::before,
+  .projects-page .page-heading::after {
+    font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  }
+
+  .projects-page .project-list {
+    width: min(100%, 66rem);
+  }
+
+  .projects-page .project-list-item {
+    grid-template-columns:
+      clamp(6rem, 8vw, 7.25rem)
+      minmax(0, 1fr)
+      auto;
+    min-height: 8.5rem;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: 1.25rem;
+  }
+
+  .projects-page .project-list-item::after {
+    font-size: 1.6rem;
+  }
+
+  .projects-page .project-list-item[aria-selected='true']::before,
+  .projects-page .project-list-item.is-selected::before {
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  }
+
+  .projects-page .project-list-item__initials {
+    font-size: clamp(1rem, 0.7rem + 1vw, 1.6rem);
+  }
+
+  .projects-page .project-list-item__status {
+    font-size: 0.8rem;
+  }
+
+  .projects-page .project-list-item__title {
+    font-size: clamp(1rem, 1.45vw, 1.2rem);
+  }
+
+  .projects-page .project-list-item__description {
+    font-size: clamp(0.875rem, 1vw, 0.9375rem);
+  }
+
+  .projects-page .technology-list {
+    gap: 0.4rem;
+  }
+
+  .projects-page .technology-tag {
+    min-height: 1.8rem;
+    padding-inline: var(--space-3);
+    font-size: 0.95rem;
+  }
+
+  .projects-page .projects-page__open-button {
+    width: min(100%, 27rem);
+    font-size: clamp(1rem, 1.7vw, 1.2rem);
+  }
+
+  .projects-page__actions .social-links--compact .pixel-button {
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    min-height: 3rem;
+  }
+
+  .projects-page__actions .social-links__icon {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+}
