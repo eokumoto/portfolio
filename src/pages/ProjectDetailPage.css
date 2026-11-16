@@ -338,10 +338,11 @@
 }
 
 .project-detail-page__panel--info {
+  /* One simple stack at every width: title, date line, then the buttons in
+     an even row underneath, all lined up on the same left edge. */
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   gap: var(--space-4);
 }
 
@@ -363,14 +364,14 @@
 }
 
 .project-detail-page__panel--info .project-detail-page__actions {
-  width: auto;
-  flex: 1 1 18rem;
-  justify-content: flex-end;
+  display: grid;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
   gap: var(--space-3);
 }
 
 .project-detail-page__panel--info .project-detail-page__actions .pixel-button {
-  flex: 0 1 11rem;
+  width: 100%;
 }
 
 /* Same width as the showcase above, so the panel edges line up. */
@@ -489,12 +490,9 @@
   }
 
   /* The info panel grows to fill whatever height the left column adds.
-     Its text and buttons stay together in the middle instead of spreading
-     to the top and bottom edges. */
+     Its contents stay together in the middle. */
   .project-detail-page__panel--info {
     flex: 1;
-    align-content: center;
-    row-gap: var(--space-3);
   }
 
   /* A fixed 16:10 frame, so every screenshot sits in the same size box
