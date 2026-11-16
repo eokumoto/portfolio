@@ -526,7 +526,8 @@
       auto;
     gap: clamp(var(--space-2), 2vw, var(--space-3));
     min-height: 7.5rem;
-    padding: var(--space-2);
+    /* Extra room on the left for the selected ▶ arrow. */
+    padding: var(--space-2) var(--space-2) var(--space-2) 1.5rem;
     border-radius: 0.75rem;
     align-items: center;
   }
@@ -572,10 +573,10 @@
   .projects-page .project-list-item[aria-selected='true']::before,
   .projects-page .project-list-item.is-selected::before {
     display: block;
-    left: var(--space-2);
-    top: var(--space-2);
-    transform: none;
-    font-size: 1.75rem;
+    left: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
   }
 
   .projects-page__actions {
