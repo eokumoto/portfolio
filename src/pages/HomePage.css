@@ -6,7 +6,7 @@
   --home-control-shadow: var(--button-shadow);
   min-height: 100svh;
   overflow-x: hidden;
-  background-color: var(--color-sky);
+  background-color: #a775cc;
   background-image: url('/images/backgrounds/home.png');
   background-position: center;
   background-repeat: no-repeat;
@@ -198,8 +198,10 @@
     gap: var(--space-3);
   }
 
+  /* Sit lower on phones so the name clears the top of the background art. */
   .home-page__main {
-    padding-block: var(--space-4);
+    padding-block: clamp(var(--space-6), 9svh, 5rem) var(--space-4);
+    transform: none;
   }
 
   .home-page__primary-button {

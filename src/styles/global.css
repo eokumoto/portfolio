@@ -8,7 +8,10 @@ html {
   min-width: 20rem;
   min-height: 100%;
   color: var(--color-plum);
-  background: var(--color-sky-light);
+  /* Shows behind the phone browser bars and when scrolling past the page
+     edges, so it matches the purple sky at the top and the pink ground at
+     the bottom of the background art instead of flashing light blue. */
+  background: linear-gradient(#a775cc 0 50%, #d9879f 50% 100%);
   font-family: var(--font-body);
   font-size: 100%;
   line-height: 1.65;
