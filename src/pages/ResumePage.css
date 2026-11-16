@@ -235,13 +235,12 @@
   flex: 1;
   margin: var(--space-3) calc(-1 * var(--education-pad))
     calc(-1 * var(--education-pad));
-  /* Ground and hill bands that carry the scene's edges out to any width. */
+  /* Campus, hill and mountain bands that carry the scene's edges out to any width. */
   background: linear-gradient(
       to top,
-      #86b867 0 calc(4 * var(--art-px)),
-      #9cc97a 0 calc(9 * var(--art-px)),
-      #de9bb3 0 calc(16 * var(--art-px)),
-      #eab3c6 0 calc(20 * var(--art-px)),
+      #4e7a3a 0 calc(18 * var(--art-px)),
+      #a9ad68 0 calc(25 * var(--art-px)),
+      #9aa98f 0 calc(28 * var(--art-px)),
       transparent 0
     )
     bottom / 100% 100% no-repeat;
