@@ -122,6 +122,7 @@ export const projects: Project[] = [
       'Setting up paid subscriptions with Stripe for the first time',
       'Adding read aloud with Google Cloud Text-to-Speech for the first time',
       'Designing for accessibility first, from contrast and fonts to never relying on color alone',
+      'Pitching the project in front of judges, which I had never done before',
     ],
   },
   {
@@ -166,8 +167,14 @@ export const projects: Project[] = [
       "Join other people's sessions and talk in a group chat once you're in",
       'Notifications when a session you joined changes',
     ],
-    challenges: ['TODO'],
-    lessons: ['TODO'],
+    challenges: [
+      'Connecting the Supabase backend to Vercel for the first time, including learning how to handle the API keys and environment variables',
+    ],
+    lessons: [
+      'Working in sprints for the first time, following Agile methods, and giving stand-up update presentations in front of the class',
+      'Writing user stories and planning the app around different software architectures',
+      'Setting up and connecting Supabase on my own for the first time',
+    ],
   },
   {
     slug: 'easy-web',

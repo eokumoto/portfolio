@@ -33,9 +33,11 @@ export function AboutPage() {
                   {aboutContent.greetingDecoration}
                 </span>
               </p>
-              <p className="about-page__introduction">
-                {aboutContent.introduction}
-              </p>
+              {aboutContent.introduction.map((paragraph) => (
+                <p className="about-page__introduction" key={paragraph}>
+                  {paragraph}
+                </p>
+              ))}
 
               <section
                 aria-labelledby="about-interests-heading"

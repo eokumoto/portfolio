@@ -1,6 +1,8 @@
-import { education, siteContent } from './site'
-
-const interests = ['Game development']
+const interests = [
+  'Full-stack web development',
+  'Content creation',
+  'Video editing',
+]
 
 export interface AboutDetailSection {
   display: 'lines' | 'list'
@@ -20,7 +22,7 @@ export interface AboutContent {
   greetingDecoration: string
   interests: string[]
   interestsHeading: string
-  introduction: string
+  introduction: string[]
   pageTitle: string
 }
 
@@ -28,7 +30,11 @@ export const aboutContent: AboutContent = {
   pageTitle: 'ABOUT ME',
   greeting: 'HELLO!',
   greetingDecoration: '♡',
-  introduction: `I'm a ${siteContent.subtitle}.`,
+  introduction: [
+    "I'm Emi, a third-year Software Engineering student at Cal Poly San Luis Obispo, minoring in math. I'm originally from Honolulu, Hawaii, and I love web development, especially full stack.",
+    'I like building things people actually get to use. My first team project, PolyProblems, is now on the App Store. Since then I keep coming back to apps that make everyday things a little easier, like SID for dyslexic readers and EasyWeb for anyone who finds the internet overwhelming.',
+    "A year ago I had never used git or built a backend. Now I've shipped an app with a team of ten, taken the lead on a hackathon build, and joined Hack4Impact Cal Poly as a developer. I'm proud of how far I've come and excited to keep learning.",
+  ],
   interestsHeading: 'INTERESTS',
   interests,
   artwork: {
@@ -39,25 +45,20 @@ export const aboutContent: AboutContent = {
   details: [
     {
       display: 'list',
-      items: interests,
-      marker: '♥',
-      title: 'What I Like',
-    },
-    {
-      display: 'lines',
       items: [
-        education.degree,
-        education.university,
-        `Expected graduation: ${education.expectedGraduation}`,
+        'Cooking',
+        'Rock climbing',
+        'Playing video games',
+        'Lion dancing',
       ],
-      marker: '◆',
-      title: 'Currently',
+      marker: '♥',
+      title: 'In My Free Time',
     },
     {
       display: 'list',
-      items: ['Aspiring game developer'],
+      items: ['Sushi', 'Rollercoasters', 'Llamas'],
       marker: '✦',
-      title: 'Goals',
+      title: 'Things I Love',
     },
   ],
 }
