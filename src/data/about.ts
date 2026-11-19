@@ -46,7 +46,8 @@ export const aboutContent: AboutContent = {
     {
       display: 'list',
       items: [
-        'Playing violin in a symphony',
+        'Playing instruments (violin, piano)',
+        'Singing',
         'Cooking (especially pasta!)',
         'Rock climbing',
         'Playing video games',
