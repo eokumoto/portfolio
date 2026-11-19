@@ -46,7 +46,7 @@ export const aboutContent: AboutContent = {
     {
       display: 'list',
       items: [
-        'Cooking',
+        'Cooking (especially pasta!)',
         'Rock climbing',
         'Playing video games',
         'Lion dancing',
@@ -56,7 +56,13 @@ export const aboutContent: AboutContent = {
     },
     {
       display: 'list',
-      items: ['Sushi', 'Rollercoasters', 'Llamas'],
+      items: [
+        'One Piece',
+        'Sushi',
+        'Anything cute and pink',
+        'Rollercoasters',
+        'Llamas',
+      ],
       marker: '✦',
       title: 'Things I Love',
     },
